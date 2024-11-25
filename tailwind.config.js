@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        jarvisPrimary: "var(--jarvis-svetla)",
+        jarvisSecondary: "var(--jarvis-tmava)",
+        jarvisBg: "var(--jarvisBg)",
       },
     },
   },

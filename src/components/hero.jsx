@@ -2,24 +2,19 @@ import Link from "next/link";
 import React from "react";
 export default function Hero() {
   return (
-    <div className="bg-teal-600">
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
-          <div className="flex flex-col mb-16 sm:text-center sm:mb-0">
-            <Link href="/" className="mb-6 sm:mx-auto"></Link>
-            <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-              <div>
-                <h1 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
-                  JARVIS
-                </h1>
-                <p className="mb-6 ">shop</p>
-              </div>
-              <p className=" md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
-              </p>
-            </div>
-          </div>
+    <div className="bg-[url(https://res.cloudinary.com/dqtptqvnb/image/upload/v1732557687/1000001408_oqeyqx.webp)] bg-cover bg-center bg-no-repeat bg-[#00000055] bg-blend-darken">
+      <div className="pt-32 pb-20 md:pt-44 md:pb-32 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:pt-56 lg:pb-44 flex flex-col mb-16 text-center sm:mb-0">
+        <div className="max-w-full mb-10 md:mx-auto sm:text-center md:mb-12">
+          <h1 className="nadpisText-800 text-8xl leading-none tracking-tight mx-auto md:text-[150px] lg:text-[250px] xl:text-[300px] text-white mb-2">
+            JARVIS
+          </h1>
+          <ul className="text-lg md:text-xl md:text-right nadpisText-700 text-white uppercase">
+            <li>prodejny budoucnosti</li>
+            <li>otevřeno 24/7</li>
+            <li>lokálnost</li>
+            <li>inovace</li>
+            <li>pohodlí</li>
+          </ul>
         </div>
       </div>
     </div>

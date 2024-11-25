@@ -5,6 +5,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --jarvis-svetla: #bb874c;
+  --jarvis-tmava: #2d140d;
+  /* --jarvis2:#2E150E; */
+  --jarvisBg: #e9e5da;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -18,4 +22,48 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.normalniText-100 {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.normalniText-200 {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+}
+.normalniText-300 {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 300;
+}
+
+.nadpisText-400 {
+  font-family: "Public Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.nadpisText-700 {
+  font-family: "Public Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.nadpisText-800 {
+  font-family: "Public Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.stin {
+  box-shadow: 0 12px 32px -24px rgba(0, 0, 0, 0.8);
 }
