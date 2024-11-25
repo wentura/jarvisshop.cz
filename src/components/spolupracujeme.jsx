@@ -1,5 +1,5 @@
+import Link from "next/link";
 import React from "react";
-
 export default function Spolupracujeme() {
   return (
     <div className="bg-teal-600">
@@ -44,7 +44,7 @@ export default function Spolupracujeme() {
           </p>
         </div>
         <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
-          <a
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -67,8 +67,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -91,8 +91,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -115,8 +115,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -139,8 +139,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -163,8 +163,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -187,8 +187,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -211,8 +211,8 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
@@ -235,15 +235,15 @@ export default function Spolupracujeme() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="text-center">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
           >
             Learn more
-          </a>
+          </Link>
         </div>
       </div>
     </div>

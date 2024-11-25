@@ -1,11 +1,12 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sticky top-0 z-50 bg-white">
       <div className="relative flex items-center justify-between">
-        <a
+        <Link
           href="/"
           aria-label="Company"
           title="Company"
@@ -14,57 +15,57 @@ export default function Navigation() {
           <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
             JarvisShop_logo
           </span>
-        </a>
+        </Link>
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
-            <a
+            <Link
               href="/"
               aria-label="Our product"
               title="Our product"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Product
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/"
               aria-label="Our product"
               title="Our product"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Features
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/"
               aria-label="Product pricing"
               title="Product pricing"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/"
               aria-label="About us"
               title="About us"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               About us
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               aria-label="Sign up"
               title="Sign up"
             >
               Sign up
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="lg:hidden">
@@ -94,7 +95,7 @@ export default function Navigation() {
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <a
+                    <Link
                       href="/"
                       aria-label="Company"
                       title="Company"
@@ -118,7 +119,7 @@ export default function Navigation() {
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Company
                       </span>
-                    </a>
+                    </Link>
                   </div>
                   <div>
                     <button
@@ -139,54 +140,54 @@ export default function Navigation() {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <a
+                      <Link
                         href="/"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Product
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Features
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/"
                         aria-label="Product pricing"
                         title="Product pricing"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Pricing
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/"
                         aria-label="About us"
                         title="About us"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         About us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/"
                         className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                         aria-label="Sign up"
                         title="Sign up"
                       >
                         Sign up
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>

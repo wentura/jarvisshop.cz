@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 export default function Tym() {
   return (
     <div className="bg-teal-600">
