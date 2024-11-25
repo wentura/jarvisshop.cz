@@ -175,9 +175,9 @@ export default function Recenze() {
           </div>
           <h6 className="mb-2 font-semibold leading-5">Lookout flogging</h6>
           <p className="text-sm text-gray-900">
-            Flatland! Hypatia. Galaxies Orion's sword globular star cluster?
-            Light years quasar as a patch of light gathered by gravity Vangelis
-            radio telescope.
+            Flatland! Hypatia. Galaxies Orion&apos;s sword globular star
+            cluster? Light years quasar as a patch of light gathered by gravity
+            Vangelis radio telescope.
           </p>
         </div>
       </div>
