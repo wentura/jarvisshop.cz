@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function PilotniProdejna() {
@@ -5,78 +6,40 @@ export default function PilotniProdejna() {
     <div className="bg-jarvisBg">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
-          <div className="flex flex-col justify-center">
-            <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                The quick, brown fox
-                <br className="hidden md:block" />
-                jumps over{" "}
-                <span className="inline-block text-deep-purple-accent-400">
-                  a lazy dog
-                </span>
+          <div className="flex flex-col justify-center order-1">
+            <div className="max-w-full mb-6">
+              <h2 className="max-w-full mb-6 nadpisText-800 text-2xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center lg:text-left">
+                pilotní prodejna
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+              <p className="">
+                První z prodejen JARVIS Shopu přináší čerstvé produkty, základní
+                potraviny, nápoje a další zboží pro každodenní potřeby. Přijďte
+                si vyzkoušet nakupování budoucnosti!
               </p>
             </div>
-            <div className="grid gap-8 row-gap-8 sm:grid-cols-2">
-              <div>
-                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-10 h-10 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <h6 className="mb-2 font-semibold leading-5">
-                  I&apos;ll be sure to note that in my log
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Dingy I&apos;m tellin&apos; you rhubaahb Bangah Jo-Jeezly got
-                  in a gaum Powrtland stove up dooryahd
-                </p>
-              </div>
-              <div>
-                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-10 h-10 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <h6 className="mb-2 font-semibold leading-5">
-                  Iterative approaches to corporate strategy
-                </h6>
-                <p className="text-sm text-gray-900">
-                  A slice of heaven. O for awesome, this chocka full cuzzie is
-                  as rip-off as a cracker.
-                </p>
-              </div>
+            <div className="flex items-center  mb-4">
+              <Image
+                src="/icon_map.png"
+                height={50}
+                width={50}
+                alt="ikona mapy"
+              />
+              <a
+                href="https://www.google.com/maps/place/Choru%C5%A1ick%C3%A1+111,+277+38+M%C4%9Blnick%C3%A9+Vtelno-Radou%C5%88/@50.3483543,14.6747154,17z/data=!3m1!4b1!4m6!3m5!1s0x470be36c193766fb:0xf30dc2233cba8293!8m2!3d50.3483543!4d14.6772957!16s%2Fg%2F11c4kmcg2x!5m1!1e4?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                className="pl-8 nadpisText-400 underline decoration-jarvisPrimary text-jarvisSecondary text-lg"
+              >
+                Chorušická 111, Mělnické Vtelno - Radouň
+              </a>
             </div>
           </div>
           <div>
             <img
-              className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-              src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-              alt=""
+              className="object-cover w-full h-56 rounded-xl shadow-xl sm:h-96"
+              src="/mapa.webp"
+              height={300}
+              width={500}
+              alt="mapa Mělnické Vtelno - Radouň"
             />
           </div>
         </div>

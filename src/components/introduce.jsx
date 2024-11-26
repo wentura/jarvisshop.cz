@@ -15,7 +15,7 @@ export default function Introduce() {
         </div>
         <div>
           <img
-            className="object-fit w-full"
+            className="object-fit w-full scale-110"
             src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1732556877/jarvis-logo-rgb-02_nq2szx.png"
             alt="Jarvsi Shop logo"
           />
