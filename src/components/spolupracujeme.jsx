@@ -9,9 +9,9 @@ export default function Spolupracujeme() {
             spolupracujeme
           </h2>
           <p className="">
-            Spolupracujeme a{" "}
             <span className="font-bold">
-              podporujeme místní farmáře a výrobce
+              {" "}
+              Spolupracujeme a podporujeme místní farmáře a výrobce
             </span>
             , kteří dodávají{" "}
             <span className="font-bold">čerstvé potraviny</span> a kvalitní

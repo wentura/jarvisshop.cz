@@ -7,10 +7,10 @@ export default function Howto() {
       <h2 className="max-w-full mb-6 nadpisText-800 text-4xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center">
         jak nakupovat?{" "}
       </h2>
-      <div className="flex flex-col justify-center w-full">
+      <div className="flex flex-col justify-between w-full">
         {HowtoData.map((how, index) => (
           <div
-            className={`flex max-w-screen-xl gap-8 flex-col justify-center text-center mx-auto mb-24 md:text-left md:items-center ${
+            className={`flex max-w-screen-xl md:gap-x-24 gap-y-8 flex-col justify-center text-center mx-auto mb-24 md:text-left md:items-center ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
             key={index}
@@ -18,25 +18,24 @@ export default function Howto() {
             <div className="md:hidden w-16 bg-gray-50 mx-auto h-16 flex justify-center items-center text-2xl md:text-4xl text-bolder drop-shadow-xl nadpisText-800">
               {index + 1}
             </div>
-            <div className="md:w-2/5">
+            <div className="md:w-[500px]">
               <h3 className="nadpisText-700 uppercase text-xl md:text-3xl pb-4 text-jarvisSecondary">
                 {how.title}
               </h3>
-              <p>
-                Stačí naskenovat kód na vstupních dveřích a získáte přístup do
-                prodejny.
-              </p>
+              <p>{how.text}</p>
             </div>
-            <div className="hidden md:flex md:w-1/5">
-              <div className="bg-gray-50 mx-auto w-16 h-16 flex justify-center items-center text-2xl md:text-4xl text-bolder drop-shadow-xl nadpisText-800 ">
-                {index + 1}
+            <div className="hidden md:flex">
+              <div className="w-[50px]">
+                <div className="bg-gray-50 mx-auto w-16 h-16 flex justify-center items-center text-2xl md:text-4xl text-bolder drop-shadow-xl nadpisText-800 ">
+                  {index + 1}
+                </div>
               </div>
             </div>
-            <div className="md:w-2/5 mx-auto">
+            <div className="mx-auto">
               <img
                 src="https://dummyimage.com/400x250.png"
                 alt="vstup do prodejny"
-                className="w-full"
+                className="w-[500px]"
               />
             </div>
           </div>

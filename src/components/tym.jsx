@@ -12,14 +12,15 @@ export default function Tym() {
           </div>
           <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
             <div className="flex flex-col justify-center">
-              <div className="max-w-xl mb-6">
+              <div className="max-w-xl mb-12">
                 {/* <h2 className="nadpisText-700 uppercase text-xl md:text-3xl pb-4 text-jarvisSecondary">
                   náš tým
                 </h2> */}
                 <p className="text-base text-gray-700 md:text-lg">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae. explicabo.
+                  Jsme technologická společnost JARVIS, která vyrábí obchody
+                  budoucnosti. Bez nutnosti obsluhy a NONSTOP otevřeno! Věříme v
+                  lepší a zábavnější nakupování. Prostě inteligentní obchod
+                  budoucnosti.
                 </p>
               </div>
               <div className="grid gap-10 row-gap-8 mx-auto sm:row-gap-10 lg:max-w-screen-lg lg:grid-cols-2">

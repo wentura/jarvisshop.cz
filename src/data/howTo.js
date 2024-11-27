@@ -1,7 +1,7 @@
 export const HowtoData = [
   {
-    title: "pomocí QR kódu vstupte",
-    text: "Stačí naskenovat kód na vstupních dveřích a získáte přístup do prodejny.",
+    title: "vstupte pomocí QR kódu",
+    text: "Naskenujte QR kód na vstupních dveřích, které se Vám následně otevřou.",
     image: "https://dummyimage.com/400x250.png",
   },
   {
@@ -11,7 +11,7 @@ export const HowtoData = [
   },
   {
     title: "Jednoduchá platba",
-    text: "Plaťte kartou pohodlně pomocí samoobslužné pokladny – rychle a bezpečně.",
+    text: "Plaťte kartou pohodlně pomocí samoobslužné pokladny. Rychle, bezpečně a bez zbytečného čekání.",
     image: "https://dummyimage.com/400x250.png",
   },
 ];

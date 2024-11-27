@@ -8,7 +8,7 @@ export const localProducts = [
     text: "Věříme v zodpovědný přístup k životnímu prostředí. Používáme solární energii, nízkoenergetické technologie a modulární design prodejen, které snižují naši ekologickou stopu.",
   },
   {
-    title: "Nepřetržita dostupnost",
-    text: "Nedelejte si starosti s otevírací dobou. Naše prodejny jsou otevřeny nonstop, pohodlný nákup kdykoli – ráno, večer i o svátcích.",
+    title: "Nepřetržitá dostupnost",
+    text: "Nedělejte si starosti s otevírací dobou. Naše prodejny jsou otevřeny NONSTOP, pohodlný nákup kdykoli – ráno, večer, o svátcích.",
   },
 ];

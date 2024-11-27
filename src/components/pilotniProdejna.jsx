@@ -5,16 +5,24 @@ export default function PilotniProdejna() {
   return (
     <div className="bg-jarvisBg">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <h2 className="max-w-full mb-6 nadpisText-800 text-2xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center ">
+          naše první prodejna
+        </h2>
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
           <div className="flex flex-col justify-center order-1">
             <div className="max-w-full mb-6">
-              <h2 className="max-w-full mb-6 nadpisText-800 text-2xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center lg:text-left">
-                pilotní prodejna
-              </h2>
               <p className="">
-                První z prodejen JARVIS Shopu přináší čerstvé produkty, základní
-                potraviny, nápoje a další zboží pro každodenní potřeby. Přijďte
-                si vyzkoušet nakupování budoucnosti!
+                První z prodejen JARVIS Shopu přináší čerstvé produkty od
+                lokálních framářů a výrobců. V nabídce najdete kvalitní základní
+                potraviny, nápoje a další zboží každodenní potřeby.
+              </p>
+              <p className="mt-4">
+                Přijďte si vyzkoušet nakupování budoucnosti!
+              </p>
+              <p className="mt-4">
+                Oddělení s alkoholem a tabákovými výrobky.{" "}
+                <br className="block md:hidden" />
+                <small>Vstup pouze pro starší 18ti let.</small>
               </p>
             </div>
             <div className="flex items-center  mb-4">
