@@ -10,7 +10,7 @@ export default function Recenze() {
         </h2>
       </div>
       <div className="flex flex-wrap justify-center mx-auto lg:gap-6 indie-flower">
-        {recenzeData.slice(0, 3).map((item, index) => (
+        {recenzeData.map((item, index) => (
           <div
             className={` ${
               index % 2 === 0 ? "rotate-6" : "-rotate-4"
@@ -43,7 +43,7 @@ export default function Recenze() {
       </div>
       <div className="text-right mt-12">
         <Link
-          href="/recenze"
+          href="/"
           className="text-jarvisSecondary underline underline-jarvisPrimary"
         >
           více recenzí a ohlasů
