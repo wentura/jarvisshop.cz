@@ -14,7 +14,7 @@ export default function Recenze() {
           <div
             className={` ${
               index % 2 === 0 ? "rotate-6" : "-rotate-4"
-            } p-5 bg-yellow-200 shadow-xl h-80 w-80 `}
+            } p-5 bg-yellow-200 shadow-xl h-80 w-80  flex flex-col justify-center`}
             key={index}
           >
             <h6
@@ -31,13 +31,13 @@ export default function Recenze() {
             >
               {item.text}
             </p>
-            <p
+            {/* <p
               className={` ${
                 index % 2 === 0 ? "-rotate-12" : "-rotate-8"
               } text-right text-xl pt-4 pr-8`}
             >
               {item.name}
-            </p>
+            </p> */}
           </div>
         ))}
       </div>

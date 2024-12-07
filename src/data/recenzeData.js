@@ -1,32 +1,32 @@
 export const recenzeData = [
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "Super to tu je. 10/10",
+    text: "",
   },
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "Hezký to tu je.",
+    text: "Chtělo by to studené pití.",
   },
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "Je to tu skvělý.",
+    text: "",
   },
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "Chteli bysme tu mít kofolu.",
+    text: "",
   },
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "Přidejte alkohol a puffy...",
+    text: "...a budeme tu každý víkend.",
   },
   {
     name: "Vlasta",
-    title: "Jarvis Shop",
-    text: "Jarvis Shop je výrobení prodejních na Mělníku a v Mšeně. Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za českou cenu.",
+    title: "",
+    text: "Jste rádi, že vám mávám do kamery?",
   },
 ];
