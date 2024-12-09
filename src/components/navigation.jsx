@@ -79,9 +79,9 @@ export default function Navigation() {
                   />
                 </Link>
               </li>
-              {navData.map((menu) => {
+              {navData.map((menu, index) => {
                 return (
-                  <li className="flex py-2" key={menu.id}>
+                  <li className="flex py-2" key={index}>
                     <Link
                       href={menu.link}
                       className="text-lg nadpisText-400"

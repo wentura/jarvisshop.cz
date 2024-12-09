@@ -23,8 +23,8 @@ export default function RootLayout({ children }) {
     <html lang="cs" className="scroll-smooth">
       <body className="normalniText-300 max-w-4xl mx-auto text-gray-800">
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }
