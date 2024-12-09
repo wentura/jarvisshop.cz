@@ -1,4 +1,5 @@
 import { HowtoData } from "@/data/howTo";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function Howto() {
@@ -31,11 +32,13 @@ export default function Howto() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto">
-              <img
-                src="https://dummyimage.com/400x250.png"
+            <div className="mx-auto h-72 overflow-hidden object-center">
+              <Image
+                src={how.image}
                 alt="vstup do prodejny"
                 className="w-[500px]"
+                width={400}
+                height={250}
               />
             </div>
           </div>

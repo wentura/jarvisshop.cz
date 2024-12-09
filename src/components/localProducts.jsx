@@ -1,4 +1,5 @@
 import { localProducts } from "@/data/localProducts";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function LocalProducts() {
@@ -17,20 +18,26 @@ export default function LocalProducts() {
         </div>
 
         <div className="grid grid-cols-2 gap-5">
+          <Image
+            className="object-bottom object-cover w-full h-56 col-span-2 rounded shadow-lg"
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            alt="lokální produkty"
+            width={500}
+            height={500}
+          />
           <img
-            className="object-cover w-full h-56 col-span-2 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-            alt=""
+            className="object-cover w-full h-48 rounded shadow-lg "
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            alt="lokální produkty"
+            width={300}
+            height={300}
           />
           <img
             className="object-cover w-full h-48 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-            alt=""
-          />
-          <img
-            className="object-cover w-full h-48 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-            alt=""
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            alt="lokální produkty"
+            width={300}
+            height={300}
           />
         </div>
       </div>
