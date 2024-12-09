@@ -49,7 +49,7 @@ export default function Navigation() {
           <nav
             className={`${
               isOpen ? "block" : "hidden"
-            }  top-0 left-0 right-0 bg-white px-2 pt-2 pb-4 z-20 flex flex-col text-gray-900 shadow-md opacity-90 w-full h-screen fixed`}
+            }  top-0 left-0 right-0 bg-white px-2 pt-2 pb-4 z-20 flex flex-col text-gray-900 shadow-md opacity-95 w-full h-screen fixed`}
           >
             <button className="flex justify-end p-4" onClick={toggleMenu}>
               <svg

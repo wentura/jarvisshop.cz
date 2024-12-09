@@ -17,36 +17,36 @@ export default function Home() {
       <Hero />
       <Navigation />
       {/* </header> */}
-      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44">
+      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
         <Introduce />
         <LocalProducts />
       </div>
       <div
-        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32 bg-jarvisBg "
         id="kde"
       >
         <PilotniProdejna />
       </div>
-      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44" id="jak">
+      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32" id="jak">
         <Howto />
       </div>
       <div
-        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32 bg-jarvisBg "
         id="spolupracujeme"
       >
         <Spolupracujeme />
       </div>
-      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44">
+      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
         <Recenze />
       </div>
       <div
-        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32 bg-jarvisBg "
         id="kdo"
       >
         <Tym />
       </div>
       <div
-        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44"
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32"
         id="kontakt"
       >
         <Contact />

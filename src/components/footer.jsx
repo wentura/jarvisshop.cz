@@ -29,7 +29,7 @@ export default function Footer() {
               </p> */}
             </div>
           </div>
-          <div className="text-sm text-right">
+          <div className="text-sm text-center md:text-right">
             <ul className="mt-2 space-y-2">
               {navData.map((item, index) => (
                 <li key={index}>
@@ -39,9 +39,10 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-10 pb-10 sm:flex-row">
+        <div className="flex flex-col-reverse text-center justify-center md:justify-between pt-10 pb-10 md:flex-row mx-auto">
           <p className="text-sm text-gray-400">
-            JARVIS Shop, 2023;{" "}
+            JARVIS Shop, 2024<span className="mx-2 hidden md:inline">|</span>{" "}
+            <br className="block md:hidden" />
             <a
               href="https://www.zbyneksvoboda.cz"
               className="underline underline-offset-4 decoration-jarvisPrimary"
@@ -49,7 +50,7 @@ export default function Footer() {
               vytvořil Zbyněk Svoboda
             </a>
           </p>
-          <div className="flex items-center mt-4 space-x-4 sm:mt-0">
+          <div className="flex items-center mt-4 space-x-4 sm:mt-0 justify-center pb-12 md:pb-0">
             {/* <Link
               href="/"
               className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
