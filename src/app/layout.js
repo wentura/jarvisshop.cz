@@ -20,8 +20,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="cs">
-      <body className="normalniText-300 max-w-4xl mx-auto text-gray-800 ">
+    <html lang="cs" className="scroll-smooth">
+      <body className="normalniText-300 max-w-4xl mx-auto text-gray-800">
         {children}
       </body>
       <Footer />

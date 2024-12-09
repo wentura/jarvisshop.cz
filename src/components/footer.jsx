@@ -1,9 +1,10 @@
+import { navData } from "@/data/navData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function Footer() {
   return (
-    <div className="bg-jarvisSecondary text-gray-200">
+    <div className="bg-jarvisSecondary text-gray-200 pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44">
       <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="flex flex-col mx-auto text-center gap-y-12 md:flex-row justify-between items-center">
           <div className="">
@@ -30,18 +31,11 @@ export default function Footer() {
           </div>
           <div className="text-sm text-right">
             <ul className="mt-2 space-y-2">
-              <li>
-                <Link href="/">News</Link>
-              </li>
-              <li>
-                <Link href="/">World</Link>
-              </li>
-              <li>
-                <Link href="/">Games</Link>
-              </li>
-              <li>
-                <Link href="/">References</Link>
-              </li>
+              {navData.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.link}>{item.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

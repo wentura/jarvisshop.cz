@@ -17,14 +17,40 @@ export default function Home() {
       <Hero />
       <Navigation />
       {/* </header> */}
-      <Introduce />
-      <LocalProducts />
-      <PilotniProdejna />
-      <Howto />
-      <Spolupracujeme />
-      <Recenze />
-      <Tym />
-      <Contact />
+      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44">
+        <Introduce />
+        <LocalProducts />
+      </div>
+      <div
+        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        id="kde"
+      >
+        <PilotniProdejna />
+      </div>
+      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44" id="jak">
+        <Howto />
+      </div>
+      <div
+        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        id="spolupracujeme"
+      >
+        <Spolupracujeme />
+      </div>
+      <div className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44">
+        <Recenze />
+      </div>
+      <div
+        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44 bg-jarvisBg "
+        id="kdo"
+      >
+        <Tym />
+      </div>
+      <div
+        className="pt-24 pb-24 md:pt-32 md:pb-24 lg:pt-44 lg:pb-44"
+        id="kontakt"
+      >
+        <Contact />
+      </div>
     </main>
   );
 }
