@@ -64,10 +64,9 @@ export default function Tym() {
           </div>
           <div>
             <img
-              className="object-cover w-full"
+              className="object-cover w-full px-2 mx-auto"
               src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733838967/b4_vbjh01.webp"
               alt="Šindelářovi"
-              className="px-2 mx-auto"
             />
             <div className="flex flex-row justify-around py-8 bg-gray-50 shadow-2xl">
               <div className="text-center flex flex-col">
