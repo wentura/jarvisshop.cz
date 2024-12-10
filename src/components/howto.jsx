@@ -8,6 +8,12 @@ export default function Howto() {
       <h2 className="max-w-full mb-6 nadpisText-800 text-4xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center">
         jak nakupovat?{" "}
       </h2>
+      <div className="flex flex-col justify-between w-full mx-auto mb-24">
+        <img
+          src="https://dummyimage.com/1200x600.gif?text= YT-video"
+          className="rounded-xl"
+        />
+      </div>
       <div className="flex flex-col justify-between w-full">
         {HowtoData.map((how, index) => (
           <div
@@ -32,13 +38,13 @@ export default function Howto() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto h-72 overflow-hidden object-center">
+            <div className="mx-auto h-72 overflow-hidden object-center  rounded-xl">
               <Image
                 src={how.image}
                 alt="vstup do prodejny"
                 className="w-[500px]"
                 width={400}
-                height={250}
+                height={200}
               />
             </div>
           </div>

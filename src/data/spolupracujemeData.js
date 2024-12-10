@@ -5,7 +5,7 @@ export const SpolupracujemeData = [
     text: "Výroba lahůdek, uzenin a polotovarů z kvalitních surovin za férovou cenu.",
   },
   {
-    title: "pekařstvíPaul",
+    title: "pekařství Paul",
     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1732879807/logo-rodinne-pekarstvi_jxdhqv.png",
     text: "Malé rodinné pekařství a cukrářství s vlastními obchody na Mělníku a v Mšeně.",
   },

@@ -19,22 +19,22 @@ export default function LocalProducts() {
 
         <div className="grid grid-cols-2 gap-5">
           <Image
-            className="object-bottom object-cover w-full h-56 col-span-2 rounded shadow-lg"
-            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            className="object-center object-cover w-full h-56 col-span-2 rounded-xl shadow-lg"
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733842973/paul_b4tsl2.webp"
             alt="lokální produkty"
             width={500}
             height={500}
           />
           <img
-            className="object-cover w-full h-48 rounded shadow-lg "
-            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            className="object-cover w-full h-48 rounded-xl shadow-lg "
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733842963/Jahodovy-dzem-s-vanilkou-vesnicke-dobroty-300x200_lpqg2c.webp"
             alt="lokální produkty"
             width={300}
             height={300}
           />
           <img
-            className="object-cover w-full h-48 rounded shadow-lg"
-            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            className="object-cover w-full h-48 rounded-xl shadow-lg"
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733842969/Vesnicke_dobroty_dzem-300x200_k6f0xm.webp"
             alt="lokální produkty"
             width={300}
             height={300}

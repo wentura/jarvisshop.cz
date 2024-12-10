@@ -50,7 +50,7 @@ export default function Tym() {
               <div className="flex">
                 <img
                   className="object-cover w-20 h-20 mr-4 rounded-full shadow"
-                  src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733735651/a6_dto5kp.webp"
+                  src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733840081/Petra_pqoygf.webp"
                   alt="Petra Medřická"
                 />
                 <div className="flex flex-col justify-center">
@@ -65,12 +65,19 @@ export default function Tym() {
           <div>
             <img
               className="object-cover w-full"
-              src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733735651/a10_ro0dj7.webp"
+              src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733838967/b4_vbjh01.webp"
               alt="Šindelářovi"
+              className="px-2 mx-auto"
             />
-            <div className="flex flex-row justify-around pt-4">
-              <div>Karel Šindelář</div>
-              <div>Jakub Šindelář</div>
+            <div className="flex flex-row justify-around py-8 bg-gray-50 shadow-2xl">
+              <div className="text-center flex flex-col">
+                <div className="font-semibold">Karel Šindelář</div>
+                <div className="text-sm">CEO</div>
+              </div>
+              <div className="text-center flex flex-col">
+                <div className="font-semibold">Jakub Šindelář</div>
+                <div className="text-sm">CTO</div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import { recenzeData } from "@/data/recenzeData";
-import Link from "next/link";
+import { recenzePicData } from "@/data/recenzePicData";
+import Image from "next/image";
 import React from "react";
 export default function Recenze() {
   return (
@@ -10,44 +10,22 @@ export default function Recenze() {
         </h2>
       </div>
       <div className="flex flex-wrap justify-center mx-auto lg:gap-6 indie-flower">
-        {recenzeData.map((item, index) => (
+        {recenzePicData.map((item, index) => (
           <div
             className={` ${
               index % 2 === 0 ? "rotate-6" : "-rotate-4"
-            } p-5 bg-yellow-200 shadow-xl h-80 w-80 flex flex-col justify-center`}
+            }  h-80 w-80  flex flex-col justify-center`}
             key={index}
           >
-            <h6
-              className={` ${
-                index % 2 === 0 ? "-rotate-3" : "-rotate-6"
-              } pt-4 text-2xl pb-2`}
-            >
-              {item.title}
-            </h6>
-            <p
-              className={` ${
-                index % 2 === 0 ? "-rotate-3" : "-rotate-6"
-              } text-xl text-gray-900`}
-            >
-              {item.text}
-            </p>
-            {/* <p
-              className={` ${
-                index % 2 === 0 ? "-rotate-12" : "-rotate-8"
-              } text-right text-xl pt-4 pr-8`}
-            >
-              {item.name}
-            </p> */}
+            <Image
+              src={item}
+              alt="recenze"
+              width={400}
+              height={400}
+              className="drop-shadow-2xl"
+            />
           </div>
         ))}
-      </div>
-      <div className="text-right mt-12">
-        <Link
-          href="/"
-          className="text-jarvisSecondary underline underline-jarvisPrimary"
-        >
-          více recenzí a ohlasů
-        </Link>
       </div>
     </div>
   );
