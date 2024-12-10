@@ -5,7 +5,7 @@ export default function Hero() {
     <div className="bg-[url(https://res.cloudinary.com/dqtptqvnb/image/upload/v1732557687/1000001408_oqeyqx.webp)] bg-cover bg-center bg-no-repeat bg-[#00000055] bg-blend-darken">
       <div className="pt-32 pb-20 md:pt-44 md:pb-32 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:pt-56 lg:pb-44 flex flex-col text-center sm:mb-0">
         <div className="max-w-full mb-10 md:mx-auto sm:text-center md:mb-12">
-          <ul className="text-md text-left nadpisText-400 text-white uppercase -mb-8 flex gap-x-3">
+          <ul className="justify-center  text-[11px] -mb-2 md:text-xs md:-mb-4 md:justify-start nadpisText-400 text-white uppercase lg:-mb-8 flex gap-x-3">
             <li>potraviny</li>
             <li>|</li>
             <li>lahůdky</li>

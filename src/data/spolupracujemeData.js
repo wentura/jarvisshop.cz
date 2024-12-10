@@ -10,14 +10,14 @@ export const SpolupracujemeData = [
     text: "Malé rodinné pekařství a cukrářství s vlastními obchody na Mělníku a v Mšeně.",
   },
   {
-    title: "vesnicke dobroty",
+    title: "vesnické dobroty",
     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1732879808/vesnicke_dobroty_yhn6gj.png",
     text: "Vše vyrábíme s láskou a péčí tak, jak to dělávaly naše babičky.",
   },
   {
-    title: "zázvruj",
+    title: "zázvoruj",
     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1732877687/logo_zazvoruj_p9f0kj.webp",
-    text: "nejaky text, ktery nevim ....",
+    text: "Specializovaný výrobce produktů ze zázvora, originální receptury. Vše kvalitně, zdravě a bez `srágor`",
   },
   {
     title: "rodinná farma Parusovi",
