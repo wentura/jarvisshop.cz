@@ -10,7 +10,7 @@ export default function Howto() {
       </h2>
       <div className="flex flex-col justify-between w-full mx-auto mb-24">
         <img
-          src="https://dummyimage.com/1200x600.gif?text= YT-video"
+          src="https://dummyimage.com/1200x600.gif?text=YT-video"
           className="rounded-xl"
         />
       </div>
