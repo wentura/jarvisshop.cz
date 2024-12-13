@@ -9,10 +9,17 @@ export default function Howto() {
         jak nakupovat?{" "}
       </h2>
       <div className="flex flex-col justify-between w-full mx-auto mb-24">
-        <img
-          src="https://dummyimage.com/1200x600.gif?text=YT-video"
-          className="rounded-xl"
-        />
+        <div className="youtube-video-container rounded-2xl overflow-hidden">
+          <iframe
+            width="800"
+            height="600"
+            src="https://www.youtube.com/embed/6WJUsLlIUUs?si=nRKEZ-X2SJC62oIz"
+            title="Jak nakupovat v Jarvis prodejně"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
       <div className="flex flex-col justify-between w-full">
         {HowtoData.map((how, index) => (
