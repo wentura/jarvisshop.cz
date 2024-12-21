@@ -9,7 +9,7 @@ export default function Navigation() {
     setIsOpen(!isOpen);
   }
   return (
-    <div className="px-4 py-2 mx-auto md:px-12 sticky top-0 z-50 bg-jarvisBg min-w-full stin">
+    <div className="sticky ricky px-4 py-2 mx-auto md:px-12 top-0 z-50 bg-jarvisBg min-w-full stin">
       <div className="flex justify-between max-w-screen-xl mx-auto">
         <Link href="/">
           <Image

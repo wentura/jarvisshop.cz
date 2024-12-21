@@ -16,8 +16,8 @@ export default function Howto() {
             src="https://www.youtube.com/embed/6WJUsLlIUUs?si=nRKEZ-X2SJC62oIz"
             title="Jak nakupovat v Jarvis prodejně"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function SwiperDiv() {
       spaceBetween={0}
       centeredSlides={true}
       autoplay={{
-        delay: 2500,
+        delay: 3500,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -23,13 +23,13 @@ export default function SwiperDiv() {
       className="mySwiper bg-cover bg-center bg-no-repeat bg-[#000000] bg-blend-darken "
     >
       {heroSliderData.map((item, index) => (
-        <SwiperSlide key={index} className="">
+        <SwiperSlide key={index}>
           <Image
             src={item.img}
             alt="heroSlider"
-            className="w-full h-full object-cover sm:object-fill max-w-4xl opacity-55"
+            className="w-full h-full object-cover sm:object-fill max-w-4xl opacity-50"
             width={1900}
-            height={100}
+            height={1000}
           />
         </SwiperSlide>
       ))}

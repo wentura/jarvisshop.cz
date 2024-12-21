@@ -19,3 +19,7 @@
   width: 100%;
   height: 100%;
 }
+.ricky {
+  position: sticky !important;
+  top: 500px !important;
+}
