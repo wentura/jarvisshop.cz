@@ -11,7 +11,7 @@ export default function Recenze() {
         </h2>
       </div>
       <div className="flex flex-wrap justify-center mx-auto lg:gap-6">
-        {recenzePicData.slice(0, 6).map((item, index) => (
+        {recenzePicData.slice(0, 3).map((item, index) => (
           <div
             className={` ${
               index % 2 === 0 ? "rotate-6" : "-rotate-4"
