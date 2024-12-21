@@ -13,12 +13,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      {/* <header className="flex flex-col-reverse md:flex-col"> */}
-      <div className="flex flex-col-reverse sm:flex-col">
-        <Hero />
-        <Navigation />
-      </div>
-
+      <Navigation />
+      <Hero />
       {/* </header> */}
       <div className="pt-0 sm:pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
         <Introduce />

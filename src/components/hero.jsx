@@ -5,7 +5,7 @@ import SwiperDiv from "./swiper";
 export default function Hero() {
   return (
     // <div className="bg-[url(https://res.cloudinary.com/dqtptqvnb/image/upload/v1732557687/1000001408_oqeyqx.webp)] bg-cover bg-center bg-no-repeat bg-[#00000055] bg-blend-darken">
-    <div className="">
+    <div>
       <div>
         <div className="bg-[url(https://res.cloudinary.com/dqtptqvnb/image/upload/v1734802747/shutterstock_zlxmsc.webp)] bg-cover bg-center bg-no-repeat bg-[#00000055] bg-blend-darken sm:hidden block">
           <div className="abosolute pt-4 pb-2 mx-auto flex flex-col text-center">

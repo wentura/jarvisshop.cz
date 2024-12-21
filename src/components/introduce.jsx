@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function Introduce() {
   return (
     <div
-      className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+      className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8 lg:py-12"
       id="o-nas"
     >
       <div className="grid gap-10 lg:grid-cols-2 items-center">
@@ -17,10 +18,18 @@ export default function Introduce() {
           </div>
         </div>
         <div>
-          <img
+          {/* <img
             className="object-fit w-full scale-110"
             src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1732556877/jarvis-logo-rgb-02_nq2szx.png"
             alt="Jarvsi Shop logo"
+						
+          /> */}
+          <Image
+            className="object-fit w-full rounded-xl shadow-xl"
+            src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733733657/a3_dzmtno.webp"
+            alt="Jarvsi Shop logo"
+            width={400}
+            height={300}
           />
           <p className="my-6 text-gray-800 ">
             Naše prodejny nabízeji{" "}
