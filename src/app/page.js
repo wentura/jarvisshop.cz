@@ -14,10 +14,13 @@ export default function Home() {
   return (
     <main>
       {/* <header className="flex flex-col-reverse md:flex-col"> */}
-      <Hero />
-      <Navigation />
+      <div className="flex flex-col-reverse sm:flex-col">
+        <Hero />
+        <Navigation />
+      </div>
+
       {/* </header> */}
-      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
+      <div className="pt-0 sm:pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
         <Introduce />
         <LocalProducts />
       </div>

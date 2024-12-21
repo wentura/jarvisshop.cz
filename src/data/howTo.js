@@ -13,7 +13,7 @@ export const HowtoData = [
   },
   {
     title: "platba kartou",
-    text: "Pohodlně pomocí samoobslužné pokladny. Rychle, bezpečně a bez zbytečného čekání. V současné době můzete platit pouze platebními kartami.",
+    text: "Pohodlně pomocí samoobslužné pokladny. Rychle, bezpečně a bez zbytečného čekání.<br />V současné době můzete <span class='font-bold underline'>platit pouze platebními kartami</span>.",
     image:
       "https://res.cloudinary.com/dqtptqvnb/image/upload/v1733843442/p2_fdc1hl.webp",
   },

@@ -36,7 +36,7 @@ export default function Howto() {
               <h3 className="nadpisText-700 uppercase text-xl md:text-3xl pb-4 text-jarvisSecondary">
                 {how.title}
               </h3>
-              <p>{how.text}</p>
+              <p dangerouslySetInnerHTML={{ __html: how.text }}></p>
             </div>
             <div className="hidden md:flex">
               <div className="w-[50px]">
