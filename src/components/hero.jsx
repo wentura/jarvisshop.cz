@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="bg-[url(https://res.cloudinary.com/dqtptqvnb/image/upload/v1734802747/shutterstock_zlxmsc.webp)] bg-cover bg-center bg-no-repeat bg-[#00000055] bg-blend-darken sm:hidden block">
           <div className="abosolute pt-4 pb-2 mx-auto flex flex-col text-center">
             <div className="max-w-full mb-10">
-              <ul className="justify-center text-[11px] -mb-2 nadpisText-400 text-white uppercase  flex gap-x-3">
+              <ul className="justify-center text-[11px] -mb-2 nadpisText-400 text-white uppercase  gap-x-3 hidden md:flex">
                 <li>potraviny</li>
                 <li>|</li>
                 <li>lahůdky</li>
@@ -19,7 +19,7 @@ export default function Hero() {
                 <li>|</li>
                 <li>drogérie</li>
               </ul>
-              <h1 className="nadpisText-800 text-8xl leading-none tracking-tight mx-auto md:text-[150px] lg:text-[250px] xl:text-[300px] text-white mb-2">
+              <h1 className="nadpisText-800 text-7xl leading-none tracking-tight mx-auto md:text-[150px] lg:text-[250px] xl:text-[300px] text-white mb-2">
                 JARVIS
               </h1>
               <ul className="text-lg md:text-xl md:text-right nadpisText-700 text-white uppercase">

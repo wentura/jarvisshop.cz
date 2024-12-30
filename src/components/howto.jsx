@@ -24,7 +24,7 @@ export default function Howto() {
       <div className="flex flex-col justify-between w-full">
         {HowtoData.map((how, index) => (
           <div
-            className={`flex max-w-screen-xl md:gap-x-24 gap-y-8 flex-col justify-center text-center mx-auto mb-24 md:text-left md:items-center ${
+            className={`flex max-w-screen-xl md:gap-x-24 gap-y-8 flex-col justify-center text-center mx-auto mb-12 md:text-left md:items-center ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
             key={index}
@@ -33,7 +33,7 @@ export default function Howto() {
               {index + 1}
             </div>
             <div className="md:w-[500px]">
-              <h3 className="nadpisText-700 uppercase text-xl md:text-3xl pb-4 text-jarvisSecondary">
+              <h3 className="nadpisText-700 uppercase text-xl md:text-3xl pb-2 text-jarvisSecondary">
                 {how.title}
               </h3>
               <p dangerouslySetInnerHTML={{ __html: how.text }}></p>
@@ -45,11 +45,11 @@ export default function Howto() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto h-72 overflow-hidden object-center  rounded-xl">
+            <div className="mx-auto max-h-40 md:max-h-72 overflow-hidden object-cover object-top rounded-xl">
               <Image
                 src={how.image}
                 alt="vstup do prodejny"
-                className="w-[500px]"
+                className="w-[500px] rounded-xl"
                 width={400}
                 height={200}
               />

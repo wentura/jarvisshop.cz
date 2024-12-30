@@ -4,7 +4,7 @@ import React from "react";
 export default function Introduce() {
   return (
     <div
-      className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8 lg:py-12"
+      className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8 lg:py-12 scroll-mt-12"
       id="o-nas"
     >
       <div className="grid gap-10 lg:grid-cols-2 items-center">

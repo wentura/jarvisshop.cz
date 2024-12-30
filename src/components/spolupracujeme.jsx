@@ -10,7 +10,7 @@ export default function Spolupracujeme() {
           <h2 className="hidden md:blockmax-w-full mb-6 nadpisText-800 text-3xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center">
             spolupracujeme
           </h2>
-          <h2 className="block md:hiddenmax-w-full mb-6 nadpisText-800 text-3xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center">
+          <h2 className="block md:hiddenmax-w-full mb-6 nadpisText-800 text-4xl tracking-tight text-jarvisSecondary md:text-5xl lg:text-7xl uppercase text-center">
             naši dodavatelé
           </h2>
           <p className="">
