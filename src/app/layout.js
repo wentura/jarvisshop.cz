@@ -1,4 +1,5 @@
 import Footer from "@/components/footer";
+import Matomo from "@/components/matomo";
 import localFont from "next/font/local";
 import "./globals.css";
 import "/public/style.css";
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
       <body className="normalniText-300 max-w-4xl mx-auto text-gray-800">
         {children}
         <Footer />
+        <Matomo />
       </body>
     </html>
   );
