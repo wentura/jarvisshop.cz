@@ -39,7 +39,7 @@ export default function PilotniProdejna() {
           </div>
         </div>
         <div>
-          <img
+          <Image
             className="object-cover w-full h-56 rounded-xl shadow-xl sm:h-96"
             src="/mapa.webp"
             height={300}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 export default function Tym() {
@@ -24,10 +25,12 @@ export default function Tym() {
             </div>
             <div className="grid gap-10 row-gap-8 mx-auto sm:row-gap-10 lg:max-w-screen-lg lg:grid-cols-2">
               <div className="flex">
-                <img
+                <Image
                   className="object-cover w-20 h-20 mr-4 rounded-full shadow"
                   src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733735651/a4_fniwpq.webp"
                   alt="Karel Šindelář"
+                  width={200}
+                  height={200}
                 />
                 <div className="flex flex-col justify-center">
                   <p className="text-lg font-bold">Karel Šindelář</p>
@@ -35,10 +38,12 @@ export default function Tym() {
                 </div>
               </div>
               <div className="flex">
-                <img
+                <Image
                   className="object-cover w-20 h-20 mr-4 rounded-full shadow"
                   src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733735651/a5_xoxpx3.webp"
                   alt="Jakub Šindelář"
+                  width={200}
+                  height={200}
                 />
                 <div className="flex flex-col justify-center">
                   <p className="text-lg font-bold">Jakub Šindelář</p>
@@ -48,8 +53,10 @@ export default function Tym() {
                 </div>
               </div>
               <div className="flex">
-                <img
+                <Image
                   className="object-cover w-20 h-20 mr-4 rounded-full shadow"
+                  width={200}
+                  height={200}
                   src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733840081/Petra_pqoygf.webp"
                   alt="Petra Medřická"
                 />
@@ -63,10 +70,12 @@ export default function Tym() {
             </div>
           </div>
           <div>
-            <img
+            <Image
               className="object-cover w-full px-2 mx-auto"
               src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733838967/b4_vbjh01.webp"
               alt="Šindelářovi"
+              width={400}
+              height={400}
             />
             <div className="flex flex-row justify-around py-8 bg-gray-50 shadow-2xl">
               <div className="text-center flex flex-col">

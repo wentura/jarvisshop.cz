@@ -25,14 +25,14 @@ export default function LocalProducts() {
             width={500}
             height={500}
           />
-          <img
+          <Image
             className="object-cover w-full h-48 rounded-xl shadow-lg "
             src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733842963/Jahodovy-dzem-s-vanilkou-vesnicke-dobroty-300x200_lpqg2c.webp"
             alt="lokální produkty"
             width={300}
             height={300}
           />
-          <img
+          <Image
             className="object-cover w-full h-48 rounded-xl shadow-lg"
             src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1733842969/Vesnicke_dobroty_dzem-300x200_k6f0xm.webp"
             alt="lokální produkty"
