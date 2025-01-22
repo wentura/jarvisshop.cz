@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col-reverse text-center justify-center md:justify-between pt-10 pb-10 md:flex-row mx-auto">
           <p className="text-sm text-gray-400">
-            JARVIS Shop, 2024<span className="mx-2 hidden md:inline"> | </span>
+            JARVIS Shop<span className="mx-2 hidden md:inline"> | </span>
             <br className="block md:hidden" />
             <a
               href="https://www.zbyneksvoboda.cz"
