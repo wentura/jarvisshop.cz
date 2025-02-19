@@ -39,4 +39,29 @@ export const SpolupracujemeData = [
     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1732879807/myco-logo-clean_ia318q.png",
     text: "Vitální houby jsou tu s námi tisíce let a jejich zpracování i nákup vyžadují péči....",
   },
+  {
+    title: "Včelí farma Cihlářovi",
+    logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1739945564/cihlarovi_axkapq.webp",
+    text: "Včelí farma z přírodní rezervace Kopeč",
+  },
+  //   {
+  //     title: "Vitatrend",
+  //     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1739945564/vitatrend-logo_qvar9q.webp",
+  //     text: "Vitatrend",
+  //   },
+  //   {
+  //     title: "Samurai Shot",
+  //     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1739945564/samurai-shot_cbij8q.webp",
+  //     text: "Samurai Shot",
+  //   },
+  {
+    title: "Snackin Balls",
+    logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1739945564/snackinballs_zrebon.webp",
+    text: "",
+  },
+  //   {
+  //     title: "BE CHEF",
+  //     logo: "https://res.cloudinary.com/dqtptqvnb/image/upload/v1739945564/bechef_fcvl2b.webp",
+  //     text: "BE CHEF",
+  //   },
 ];
