@@ -22,7 +22,7 @@ export default function Radoun() {
                   alt={item.title}
                   className="w-full h-full object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300"
                 />
-                <span className="text-2xl font-bold text-white rounded-full bg-amber-600 px-8 py-8 w-36 h-36 flex items-center absolute -bottom-10 -right-4">
+                <span className="text-md font-bold text-white  bg-amber-700 w-20 h-20 rounded-full flex items-center absolute -bottom-10 -right-4 bottom-4 flex justify-center">
                   {item.price} Kč
                 </span>
               </div>
