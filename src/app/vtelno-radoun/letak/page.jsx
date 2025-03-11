@@ -70,14 +70,14 @@ export default function Radoun() {
               key={index}
               className="group relative p-6 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-center items-center"
               style={{
-                transform: `rotate(${Math.floor(Math.random() * 17) - 5}deg)`,
+                transform: `rotate(${Math.floor(Math.random() * 13) - 5}deg)`,
               }}
             >
               <div className="relative mb-4 text-center flex justify-center items-center">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full max-w-44 h-auto object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300"
+                  className="w-full max-w-44 max-h-44 h-auto object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300 px-4"
                 />
                 <span className="text-md font-bold text-white  bg-red-700 w-20 h-20 rounded-full flex items-center absolute -bottom-10 -right-4 bottom-4 flex justify-center">
                   {item.price} Kč
