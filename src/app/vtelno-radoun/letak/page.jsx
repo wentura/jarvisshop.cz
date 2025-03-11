@@ -48,15 +48,15 @@ export default function Radoun() {
         <h1 className="text-4xl font-bold text-center mb-6">{title}</h1>
 
         {/* Navigation Menu */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {groups.map((group) => (
             <button
               key={group}
               onClick={() => setActiveGroup(group)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
                 activeGroup === group
                   ? "bg-red-700 text-white"
-                  : "bg-red-100 text-red-900 hover:bg-red-200"
+                  : "bg-red-200 text-red-900 hover:bg-red-200"
               }`}
             >
               {groupNames[group]}
