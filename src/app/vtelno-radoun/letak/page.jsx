@@ -1,100 +1,216 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import { nabidka } from "./nabidka";
+import React, { useEffect, useMemo, useState } from "react";
 
-const title = "Naše nabídka";
+const title = "NAŠE NABÍDKA";
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    [shuffled[i], shuffled[j]] = [shuffled[i], shuffled[j]];
   }
   return shuffled;
 };
 
 export default function Radoun() {
-  const [activeGroup, setActiveGroup] = useState("all");
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Get unique groups from nabidka
-  const groups = ["all", ...new Set(nabidka.map((item) => item.group))];
+  // Fetch data from the API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `/api/products${
+            activeCategory !== "all" ? `?category=${activeCategory}` : ""
+          }`
+        );
 
-  // Filter and shuffle items based on active group
-  const filteredItems = useMemo(() => {
-    const filtered =
-      activeGroup === "all"
-        ? nabidka
-        : nabidka.filter((item) => item.group === activeGroup);
-    return shuffleArray(filtered);
-  }, [activeGroup]);
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(
+            `Failed to fetch data: ${errorData.error || response.statusText}`
+          );
+        }
 
-  // Group name translations
-  const groupNames = {
-    all: "Vše",
-    syr: "Sýry",
-    mlecne: "Mléčné výrobky",
-    maso: "Maso",
-    vesnickeDobroty_sirupy: "Sirupy",
-    vesnickeDobroty_omacka: "Omáčky",
-    vesnickeDobroty_dzem: "Džemy",
-    vceliFarma: "Včelí farma",
-  };
+        const data = await response.json();
 
-  return (
-    <div className="w-full bg-red-950 bg-opacity-80">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-6">{title}</h1>
+        if (!data.categories || !data.products) {
+          throw new Error("Invalid data format returned from API");
+        }
 
-        {/* Navigation Menu */}
-        <div className="flex justify-center gap-2 mb-4 flex-wrap">
-          {groups.map((group) => (
-            <button
-              key={group}
-              onClick={() => setActiveGroup(group)}
-              className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
-                activeGroup === group
-                  ? "bg-red-700 text-white"
-                  : "bg-red-200 text-red-900 hover:bg-red-200"
-              }`}
-            >
-              {groupNames[group]}
-            </button>
-          ))}
-        </div>
+        const allCategory = { id: "all", name: "VŠE" };
+        const processedCategories = [
+          allCategory,
+          ...data.categories.map((cat) => ({
+            id: cat.id,
+            name: cat.name.toUpperCase(),
+          })),
+        ];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredItems.map((item, index) => (
-            <div
-              key={index}
-              className="group relative p-6 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-center items-center"
-              style={{
-                transform: `rotate(${Math.floor(Math.random() * 13) - 5}deg)`,
-              }}
-            >
-              <div className="relative mb-4 text-center flex justify-center items-center">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full max-w-44 max-h-44 h-auto object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300 px-4"
-                />
-                <span className="text-md font-bold text-white  bg-red-700 w-20 h-20 rounded-full flex items-center absolute -bottom-10 -right-4 bottom-4 flex justify-center">
-                  {item.price} Kč
-                </span>
-              </div>
+        setCategories(processedCategories);
+        setProducts(data.products);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-              <h2 className="text-xl md:text-2xl font-bold text-gray-200 mb-2 text-center">
-                {item.title}
-              </h2>
-              <p className="text-gray-200 mb-0 text-md md:text-xl text-center">
-                {item.description}
-              </p>
-              <div className="flex justify-end items-center"></div>
-            </div>
-          ))}
+    fetchData();
+  }, [activeCategory]);
+
+  // Shuffle products for display
+  const shuffledProducts = useMemo(() => {
+    return shuffleArray(products);
+  }, [products]);
+
+  if (loading) {
+    return (
+      <div className="w-full bg-white min-h-screen flex justify-center items-center">
+        <div className="text-black text-2xl font-light tracking-wide">
+          NAČÍTÁNÍ...
         </div>
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full bg-white min-h-screen flex justify-center items-center">
+        <div className="text-black text-2xl font-light">CHYBA: {error}</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full bg-white min-h-screen font-sans">
+      {/* Swiss-style header with red block */}
+      <div className="bg-red-600 w-full py-10">
+        <div className="container mx-auto px-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight uppercase">
+            {title}
+          </h1>
+          <div className="w-24 h-1 bg-white mt-4"></div>
+        </div>
+      </div>
+
+      {/* Category navigation with Swiss-style tabs */}
+      <div className="container mx-auto px-6 py-8 border-b-2 border-black">
+        <div className="flex flex-wrap gap-1">
+          {categories.length > 0 ? (
+            categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-4 py-2 transition-all duration-300 text-xs sm:text-sm tracking-wider font-medium ${
+                  activeCategory === category.id
+                    ? "bg-black text-white"
+                    : "bg-white text-black border border-black hover:bg-gray-100"
+                }`}
+              >
+                {category.name}
+              </button>
+            ))
+          ) : (
+            <div className="text-black">NO CATEGORIES FOUND</div>
+          )}
+        </div>
+      </div>
+
+      {/* 4-column grid on large screens, 2-column on mobile with smaller images */}
+      <div className="container mx-auto px-6 py-12">
+        {shuffledProducts.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-4 md:gap-x-6">
+            {shuffledProducts.map((product) => (
+              <div key={product.id} className="group bg-white flex flex-col">
+                {/* Smaller image container */}
+                <div
+                  className="relative bg-gray-50 mb-3 overflow-hidden"
+                  style={{ height: "120px" }}
+                >
+                  <img
+                    src={product.img_url}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-2"
+                  />
+
+                  {/* Swiss-style price tag - smaller for compact layout */}
+                  <div className="absolute bottom-0 right-0 bg-red-600 text-white font-bold px-3 py-1 text-sm">
+                    {product.price} Kč
+                  </div>
+                </div>
+
+                {/* Typography-focused product info - more compact */}
+                <div className="flex flex-col gap-1">
+                  <h2 className="text-sm sm:text-base font-bold text-black uppercase tracking-tight line-clamp-2">
+                    {product.name}
+                  </h2>
+                  <div className="w-8 h-0.5 bg-red-600"></div>
+                  <p className="text-black text-xs sm:text-sm font-light line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center text-black text-xl mt-8 font-light tracking-wide">
+            ŽÁDNÉ PRODUKTY NENALEZENY
+          </div>
+        )}
+      </div>
+
+      {/* Swiss-style footer with grid lines */}
+      <footer className="bg-black text-white py-10 mt-12">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
+                KONTAKT
+              </h3>
+              <p className="font-light text-xs sm:text-sm">
+                info@vtelno-radoun.cz
+              </p>
+              <p className="font-light text-xs sm:text-sm">+420 123 456 789</p>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
+                ADRESA
+              </h3>
+              <p className="font-light text-xs sm:text-sm">Vtelno-Radouň 123</p>
+              <p className="font-light text-xs sm:text-sm">123 45 Město</p>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
+                OTEVÍRACÍ DOBA
+              </h3>
+              <p className="font-light text-xs sm:text-sm">
+                Po - Pá: 8:00 - 18:00
+              </p>
+              <p className="font-light text-xs sm:text-sm">So: 8:00 - 12:00</p>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
+                DOPRAVA
+              </h3>
+              <p className="font-light text-xs sm:text-sm">Osobní odběr</p>
+              <p className="font-light text-xs sm:text-sm">Doručení po okolí</p>
+            </div>
+          </div>
+          <div className="w-full h-0.5 bg-white mt-6 mb-4"></div>
+          <p className="text-center font-light text-xs">
+            © 2023 VTELNO-RADOUŇ. VŠECHNA PRÁVA VYHRAZENA.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

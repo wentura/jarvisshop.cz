@@ -1,0 +1,52 @@
+1. Čerstvé potraviny
+	Ovoce a zelenina: Sezónní, tropické, místní (bio) produkty.
+	Mléčné výrobky: Mléko, jogurty, sýry, máslo.
+	Maso a uzeniny: Čerstvé maso (vepřové, hovězí, drůbež), uzeniny, salámy.
+	Pečivo a cukrářské výrobky: Chléb, rohlíky, sladké pečivo, dorty.
+
+2. Trvanlivé potraviny
+	Těstoviny, rýže a luštěniny: Základní suroviny do kuchyně.
+	Konzervy, omáčky a hotová jídla: Konzervované maso, zelenina, omáčky, polévky v sáčku, instantní jídla.
+	Obiloviny a snídaňové cereálie: Müsli, vločky, granola.
+	Sůl, cukr, koření: Základní dochucovadla pro vaření.
+
+3. Nápoje
+	Nealkoholické: Minerální vody, džusy, limonády, čaje, kávy.
+	Alkoholické: Pivo, víno, destiláty (pokud je v sortimentu).
+	Speciální a zdravé nápoje: Smoothies, rostlinná mléka, kombuchy.
+
+4. Sladkosti a slané pochutiny
+	Sušenky, oplatky, čokolády: Klasické i prémiové značky, různé příchutě.
+	Brambůrky, krekry, oříšky: Slané snacky k televizi nebo na cesty.
+	Žvýkačky a bonbony: Cukrovinky pro rychlé mlsání.
+
+5. Mražené a chlazené produkty
+	Mražené maso a ryby: Pro dlouhodobé skladování.
+	Mražená zelenina a ovoce: Praktické pro rychlé vaření.
+	Hotová jídla a polotovary: Pizza, hranolky, zmrzliny a dezerty.
+	Chlazená hotová jídla: Saláty, pomazánky, bagety.
+
+6. Drogerie a osobní péče
+	Hygienické potřeby: Toaletní papír, kapesníčky, dámská hygiena.
+	Kosmetika a péče o tělo: Sprchové gely, šampony, zubní pasty, pleťové krémy.
+	Čisticí prostředky: Prostředky do kuchyně a koupelny, univerzální čističe, dezinfekce.
+	Prací prostředky: Prášky, gely a aviváže.
+
+7. Domácnost
+	Kuchyňské potřeby: Alobal, svačinové sáčky, papírové utěrky, filtry do kávovaru.
+	Úklidové pomůcky: Houbičky, hadříky, mopy, rukavice.
+	Drobné vybavení: Žárovky, baterie, lepicí pásky, svíčky.
+
+8. Potřeby pro zvířata
+	Krmivo: Granule, konzervy, pamlsky (pes, kočka, drobná domácí zvířata).
+	Péče: Hračky, pelíšky, doplňky stravy, šampóny.
+
+9. Dětské potřeby
+	Potraviny pro děti: Dětské příkrmy, sušenky, kojenecké mléko.
+	Pleny a hygienické potřeby: Vlhčené ubrousky, jednorázové i látkové pleny.
+	Drogerie pro děti: Speciální šampony a mýdla pro citlivou dětskou pokožku.
+
+10. Sezónní a lokální speciality
+	Sezónní zboží: Vánoční cukrovinky, velikonoční čokolády, letní grilovací sortiment.
+	Regionální produkty: Místní farmářské potraviny, řemeslné výrobky (např. sýry, med, paštiky, mošty).
+	Akční zboží: Produkty ve slevách, novinky či limitované edice.
