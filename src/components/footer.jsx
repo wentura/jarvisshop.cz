@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 export default function Footer() {
   return (
-    <section className="bg-jarvisSecondary text-gray-200 pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
+    <section className="bg-jarvis4 text-gray-100 pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
       <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="flex flex-col mx-auto text-center gap-y-12 md:flex-row justify-between items-center">
           <div>
@@ -16,13 +16,15 @@ export default function Footer() {
             >
               <Image
                 src="https://res.cloudinary.com/dqtptqvnb/image/upload/v1732556877/jarvis-logo-rgb-02_nq2szx.png"
-                height={50}
-                width={200}
+                height={150}
+                width={250}
                 alt="logo"
               />
             </Link>
-            <div className="mt-4">
-              <p className="text-sm">Technologie pro obchody budoucnosti.</p>
+            <div className="mt-1">
+              <p className="font-bold text-white tracking-tight uppercase font-sans">
+                Obchody budoucnosti
+              </p>
               {/* <p className="mt-4 text-sm">
                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae dicta sunt explicabo.
@@ -33,14 +35,16 @@ export default function Footer() {
             <ul className="mt-2 space-y-2">
               {navData.map((item, index) => (
                 <li key={index}>
-                  <Link href={item.link}>{item.title}</Link>
+                  <Link href={item.link} className="text-gray-200">
+                    {item.title}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="flex flex-col-reverse text-center justify-center md:justify-between pt-10 pb-10 md:flex-row mx-auto">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-200">
             JARVIS Shop<span className="mx-2 hidden md:inline"> | </span>
             <br className="block md:hidden" />
             <a
@@ -61,7 +65,7 @@ export default function Footer() {
             </Link> */}
             <a
               href="https://www.instagram.com/jarvis.shop.info"
-              className="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
+              className="text-gray-200 transition-colors duration-300 hover:text-deep-purple-accent-400"
               target="_blank"
             >
               <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
@@ -71,7 +75,7 @@ export default function Footer() {
             </a>
             <a
               href="https://www.facebook.com/profile.php?id=61563514151640"
-              className="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
+              className="text-gray-200 transition-colors duration-300 hover:text-deep-purple-accent-400"
               target="_blank"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -80,7 +84,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-			</div>
+      </div>
     </section>
   );
 }

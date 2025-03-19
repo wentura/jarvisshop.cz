@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import CategoryNavigation from "./components/CategoryNavigation";
-import Header from "./components/Header";
-import ProductGrid from "./components/ProductGrid";
-
-const title = "NAŠE NABÍDKA";
+import CategoryNavigation from "../../components/CategoryNavigation";
+import Header from "../../components/Header";
+import ProductGrid from "../../components/ProductGrid";
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
@@ -17,10 +15,11 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-export default function Radoun() {
+export default function CategoryPage({ params }) {
+  const categoryId = params.id;
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [categoryName, setCategoryName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -29,7 +28,7 @@ export default function Radoun() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/products");
+        const response = await fetch(`/api/products/category/${categoryId}`);
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -55,6 +54,7 @@ export default function Radoun() {
 
         setCategories(processedCategories);
         setProducts(data.products);
+        setCategoryName(data.currentCategory?.name?.toUpperCase() || "");
       } catch (err) {
         setError(err.message);
         console.error("Error fetching data:", err);
@@ -64,7 +64,7 @@ export default function Radoun() {
     };
 
     fetchData();
-  }, []);
+  }, [categoryId]);
 
   // Shuffle products for display
   const shuffledProducts = useMemo(() => {
@@ -91,56 +91,15 @@ export default function Radoun() {
 
   return (
     <div className="w-full bg-white min-h-screen font-sans">
-      <Header title={title} productsCount={products.length} />
-      <CategoryNavigation
-        categories={categories}
-        activeCategory={activeCategory}
+      <Header
+        title={categoryName || "KATEGORIE"}
+        productsCount={products.length}
+        categoryName={categoryName}
       />
+      <CategoryNavigation categories={categories} activeCategory={categoryId} />
       <ProductGrid products={shuffledProducts} />
 
       {/* Swiss-style footer with grid lines */}
-      <footer className="bg-black text-white py-10 mt-12">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div>
-              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
-                KONTAKT
-              </h3>
-              <p className="font-light text-xs sm:text-sm">
-                info@vtelno-radoun.cz
-              </p>
-              <p className="font-light text-xs sm:text-sm">+420 123 456 789</p>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
-                ADRESA
-              </h3>
-              <p className="font-light text-xs sm:text-sm">Vtelno-Radouň 123</p>
-              <p className="font-light text-xs sm:text-sm">123 45 Město</p>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
-                OTEVÍRACÍ DOBA
-              </h3>
-              <p className="font-light text-xs sm:text-sm">
-                Po - Pá: 8:00 - 18:00
-              </p>
-              <p className="font-light text-xs sm:text-sm">So: 8:00 - 12:00</p>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase font-bold mb-3 tracking-wide">
-                DOPRAVA
-              </h3>
-              <p className="font-light text-xs sm:text-sm">Osobní odběr</p>
-              <p className="font-light text-xs sm:text-sm">Doručení po okolí</p>
-            </div>
-          </div>
-          <div className="w-full h-0.5 bg-white mt-6 mb-4"></div>
-          <p className="text-center font-light text-xs">
-            © {new Date().getFullYear()} VTELNO-RADOUŇ. VŠECHNA PRÁVA VYHRAZENA.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
