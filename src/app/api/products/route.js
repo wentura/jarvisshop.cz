@@ -17,7 +17,7 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const categoryId = searchParams.get("category");
 
-    // Get all products first
+    // Get all products regardless of category assignment
     const { data: allProducts, error: productsError } = await supabase.from(
       "products"
     ).select(`
@@ -38,20 +38,10 @@ export async function GET(request) {
       throw productsError;
     }
 
-    // Extract unique category IDs from products that have them
-    const usedCategoryIds = [
-      ...new Set(
-        allProducts
-          .filter((product) => product.id_main_category)
-          .map((product) => product.id_main_category)
-      ),
-    ];
-
-    // Only get categories that are used in products
-    const { data: categories, error: categoriesError } = await supabase
+    // Get all categories for the menu
+    const { data: allCategories, error: categoriesError } = await supabase
       .from("categories")
       .select("*")
-      .in("id", usedCategoryIds)
       .order("name");
 
     if (categoriesError) {
@@ -62,13 +52,16 @@ export async function GET(request) {
     // Filter products by category if needed
     const filteredProducts =
       categoryId && categoryId !== "all"
-        ? allProducts.filter(
-            (product) => product.id_main_category == categoryId
+        ? allProducts.filter((product) =>
+            // Handle null id_main_category (uncategorized products)
+            categoryId === "uncategorized"
+              ? !product.id_main_category
+              : product.id_main_category == categoryId
           )
         : allProducts;
 
     return NextResponse.json({
-      categories: categories || [],
+      categories: allCategories || [],
       products: filteredProducts || [],
     });
   } catch (error) {

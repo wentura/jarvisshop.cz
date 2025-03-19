@@ -128,7 +128,7 @@ export default function Radoun() {
       {/* 4-column grid on large screens, 2-column on mobile with smaller images */}
       <div className="container mx-auto px-6 py-12">
         {shuffledProducts.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-4 md:gap-x-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-4 md:gap-x-10">
             {shuffledProducts.map((product) => (
               <div key={product.id} className="group bg-white flex flex-col">
                 {/* Smaller image container */}
