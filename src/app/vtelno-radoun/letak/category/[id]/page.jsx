@@ -100,6 +100,7 @@ export default function CategoryPage({ params }) {
       <ProductGrid products={shuffledProducts} />
 
       {/* Swiss-style footer with grid lines */}
+      
     </div>
   );
 }
