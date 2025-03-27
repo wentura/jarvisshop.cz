@@ -24,7 +24,11 @@ export async function GET() {
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
       !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
     ) {
-      throw new Error("Missing Supabase environment variables");
+      console.error("Missing Supabase environment variables");
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 }
+      );
     }
 
     // Fetch all data in parallel
@@ -35,30 +39,42 @@ export async function GET() {
         supabase.from("suppliers").select("id, name").order("name"),
       ]);
 
-    // Check for errors in any of the responses
-    if (categoriesResponse.error) {
-      console.error("Categories error:", categoriesResponse.error);
-      throw new Error(`Categories error: ${categoriesResponse.error.message}`);
-    }
-    if (productsResponse.error) {
-      console.error("Products error:", productsResponse.error);
-      throw new Error(`Products error: ${productsResponse.error.message}`);
-    }
-    if (suppliersResponse.error) {
-      console.error("Suppliers error:", suppliersResponse.error);
-      throw new Error(`Suppliers error: ${suppliersResponse.error.message}`);
-    }
-
-    return NextResponse.json({
-      categories: categoriesResponse.data,
-      products: shuffleArray(productsResponse.data),
-      suppliers: suppliersResponse.data,
+    // Log responses for debugging
+    console.log("API Responses:", {
+      categories: categoriesResponse,
+      products: productsResponse,
+      suppliers: suppliersResponse,
     });
+
+    // Check for errors in any of the responses
+    if (categoriesResponse.error) throw categoriesResponse.error;
+    if (productsResponse.error) throw productsResponse.error;
+    if (suppliersResponse.error) throw suppliersResponse.error;
+
+    // Set proper headers
+    return new NextResponse(
+      JSON.stringify({
+        categories: categoriesResponse.data || [],
+        products: productsResponse.data || [],
+        suppliers: suppliersResponse.data || [],
+      }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   } catch (error) {
     console.error("API error:", error);
-    return NextResponse.json(
-      { error: error.message || "Internal Server Error" },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({ error: error.message || "Internal Server Error" }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 }

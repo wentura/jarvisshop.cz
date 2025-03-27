@@ -17,35 +17,37 @@ export default function Radoun() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Get the current hostname
-        const baseUrl =
-          process.env.NEXT_PUBLIC_API_URL || window.location.origin;
-        const response = await fetch(`${baseUrl}/api/products`, {
+        const response = await fetch("/api/products", {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
+            Accept: "application/json",
           },
-          cache: "no-store", // Disable caching
         });
 
-        if (!response.ok) {
-          const errorData = await response.json();
+        // Log the raw response for debugging
+        const responseText = await response.text();
+        console.log("Raw response:", responseText);
+
+        // Try to parse the response as JSON
+        let data;
+        try {
+          data = JSON.parse(responseText);
+        } catch (parseError) {
           throw new Error(
-            `Failed to fetch data: ${errorData.error || response.status} ${
-              response.statusText
-            }`
+            `Invalid JSON response: ${responseText.substring(0, 100)}...`
           );
         }
 
-        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(`Server error: ${data.error || response.statusText}`);
+        }
 
         if (!data.categories || !data.products || !data.suppliers) {
-          console.error("Received data:", data); // Debug log
+          console.error("Received data structure:", data);
           throw new Error("Invalid data format returned from API");
         }
 
@@ -72,14 +74,13 @@ export default function Radoun() {
         setSuppliers(processedSuppliers);
         setProducts(data.products);
       } catch (err) {
-        setError(
-          `Failed to fetch data: ${err.message}. Please try again later or contact support.`
-        );
-        console.error("Error fetching data:", {
+        const errorMessage = `Failed to fetch data: ${err.message}`;
+        console.error("Error details:", {
           message: err.message,
           stack: err.stack,
           url: window.location.href,
         });
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -109,7 +110,6 @@ export default function Radoun() {
   return (
     <div className="w-full bg-white min-h-screen font-sans">
       <Header title={title} productsCount={products.length} />
-
       <CategoryNavigation
         categories={categories}
         activeCategory={activeCategory}
