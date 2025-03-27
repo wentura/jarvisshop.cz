@@ -1,17 +1,11 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
 // Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-// Add this debug check
-if (!supabaseUrl || !supabaseKey) {
-  console.error("Missing Supabase environment variables");
-}
-
-const supabase = createRouteHandlerClient({ cookies });
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
@@ -25,6 +19,14 @@ const shuffleArray = (array) => {
 
 export async function GET() {
   try {
+    // Check environment variables
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    ) {
+      throw new Error("Missing Supabase environment variables");
+    }
+
     // Fetch all data in parallel
     const [categoriesResponse, productsResponse, suppliersResponse] =
       await Promise.all([
@@ -49,7 +51,7 @@ export async function GET() {
 
     return NextResponse.json({
       categories: categoriesResponse.data,
-      products: productsResponse.data,
+      products: shuffleArray(productsResponse.data),
       suppliers: suppliersResponse.data,
     });
   } catch (error) {

@@ -1,43 +1,45 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+
 export async function GET(request, { params }) {
-  const supabase = createRouteHandlerClient({ cookies });
-  const supplierId = params.id;
-
   try {
-    // Fetch all suppliers for navigation
-    const { data: suppliers, error: suppliersError } = await supabase
-      .from("suppliers")
-      .select("id, name");
+    const supplierId = params.id;
 
-    if (suppliersError) throw suppliersError;
+    if (!supplierId) {
+      return NextResponse.json(
+        { error: "Supplier ID is required" },
+        { status: 400 }
+      );
+    }
 
-    // Fetch products for the specific supplier
-    const { data: products, error: productsError } = await supabase
-      .from("products")
-      .select("*")
-      .eq("id_supplier", supplierId);
+    // Fetch all data in parallel
+    const [suppliersResponse, productsResponse, currentSupplierResponse] =
+      await Promise.all([
+        supabase.from("suppliers").select("id, name").order("name"),
+        supabase.from("products").select("*").eq("id_supplier", supplierId),
+        supabase.from("suppliers").select("name").eq("id", supplierId).single(),
+      ]);
 
-    if (productsError) throw productsError;
-
-    // Fetch current supplier info
-    const { data: currentSupplier, error: currentSupplierError } =
-      await supabase
-        .from("suppliers")
-        .select("name")
-        .eq("id", supplierId)
-        .single();
-
-    if (currentSupplierError) throw currentSupplierError;
+    // Check for errors
+    if (suppliersResponse.error) throw suppliersResponse.error;
+    if (productsResponse.error) throw productsResponse.error;
+    if (currentSupplierResponse.error) throw currentSupplierResponse.error;
 
     return NextResponse.json({
-      suppliers,
-      products,
-      currentSupplier,
+      suppliers: suppliersResponse.data,
+      products: productsResponse.data,
+      currentSupplier: currentSupplierResponse.data,
     });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("API error:", error);
+    return NextResponse.json(
+      { error: error.message || "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

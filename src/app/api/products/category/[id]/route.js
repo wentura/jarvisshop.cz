@@ -23,63 +23,45 @@ export async function GET(request, { params }) {
       );
     }
 
-    // Get products for the specific category
-    const { data: products, error: productsError } = await supabase
-      .from("products")
-      .select(
-        `
-        id, 
-        name, 
-        description, 
-        price, 
-        img_url,
-        id_main_category,
-        categories:id_main_category (
+    // Fetch all data in parallel
+    const [productsResponse, categoriesResponse, currentCategoryResponse] =
+      await Promise.all([
+        supabase
+          .from("products")
+          .select(
+            `
           id, 
-          name
-        )
-      `
-      )
-      .eq("id_main_category", categoryId);
+          name, 
+          description, 
+          price, 
+          img_url,
+          id_main_category,
+          categories:id_main_category (id, name)
+        `
+          )
+          .eq("id_main_category", categoryId),
+        supabase.from("categories").select("*").order("name"),
+        supabase
+          .from("categories")
+          .select("name")
+          .eq("id", categoryId)
+          .single(),
+      ]);
 
-    if (productsError) {
-      console.error("Products error:", productsError);
-      throw productsError;
-    }
-
-    // Get all categories for the navigation
-    const { data: categories, error: categoriesError } = await supabase
-      .from("categories")
-      .select("*")
-      .order("name");
-
-    if (categoriesError) {
-      console.error("Categories error:", categoriesError);
-      throw categoriesError;
-    }
-
-    // Get the current category for the title
-    const { data: currentCategory, error: currentCategoryError } =
-      await supabase
-        .from("categories")
-        .select("name")
-        .eq("id", categoryId)
-        .single();
-
-    if (currentCategoryError) {
-      console.error("Current category error:", currentCategoryError);
-      throw currentCategoryError;
-    }
+    // Check for errors
+    if (productsResponse.error) throw productsResponse.error;
+    if (categoriesResponse.error) throw categoriesResponse.error;
+    if (currentCategoryResponse.error) throw currentCategoryResponse.error;
 
     return NextResponse.json({
-      products: products || [],
-      categories: categories || [],
-      currentCategory: currentCategory || null,
+      products: productsResponse.data || [],
+      categories: categoriesResponse.data || [],
+      currentCategory: currentCategoryResponse.data || null,
     });
   } catch (error) {
     console.error("API error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch data: " + error.message },
+      { error: error.message || "Internal Server Error" },
       { status: 500 }
     );
   }
