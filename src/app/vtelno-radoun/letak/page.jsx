@@ -22,18 +22,30 @@ export default function Radoun() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/products");
+        // Get the current hostname
+        const baseUrl =
+          process.env.NEXT_PUBLIC_API_URL || window.location.origin;
+        const response = await fetch(`${baseUrl}/api/products`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          cache: "no-store", // Disable caching
+        });
 
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(
-            `Failed to fetch data: ${errorData.error || response.statusText}`
+            `Failed to fetch data: ${errorData.error || response.status} ${
+              response.statusText
+            }`
           );
         }
 
         const data = await response.json();
 
         if (!data.categories || !data.products || !data.suppliers) {
+          console.error("Received data:", data); // Debug log
           throw new Error("Invalid data format returned from API");
         }
 
@@ -60,8 +72,14 @@ export default function Radoun() {
         setSuppliers(processedSuppliers);
         setProducts(data.products);
       } catch (err) {
-        setError(err.message);
-        console.error("Error fetching data:", err);
+        setError(
+          `Failed to fetch data: ${err.message}. Please try again later or contact support.`
+        );
+        console.error("Error fetching data:", {
+          message: err.message,
+          stack: err.stack,
+          url: window.location.href,
+        });
       } finally {
         setLoading(false);
       }

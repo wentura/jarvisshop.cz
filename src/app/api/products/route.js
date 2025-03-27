@@ -25,32 +25,38 @@ const shuffleArray = (array) => {
 
 export async function GET() {
   try {
-    // Fetch suppliers separately to ensure we get all of them
-    const { data: suppliers, error: suppliersError } = await supabase
-      .from("suppliers")
-      .select("id, name")
-      .order("name"); // Optional: order suppliers alphabetically
+    // Fetch all data in parallel
+    const [categoriesResponse, productsResponse, suppliersResponse] =
+      await Promise.all([
+        supabase.from("categories").select("id, name").order("name"),
+        supabase.from("products").select("*"),
+        supabase.from("suppliers").select("id, name").order("name"),
+      ]);
 
-    if (suppliersError) throw suppliersError;
-
-    const [categoriesResponse, productsResponse] = await Promise.all([
-      supabase.from("categories").select("id, name"),
-      supabase.from("products").select("*"),
-    ]);
-
-    if (categoriesResponse.error) throw categoriesResponse.error;
-    if (productsResponse.error) throw productsResponse.error;
-
-    // Shuffle the products
-    const shuffledProducts = shuffleArray(productsResponse.data || []);
+    // Check for errors in any of the responses
+    if (categoriesResponse.error) {
+      console.error("Categories error:", categoriesResponse.error);
+      throw new Error(`Categories error: ${categoriesResponse.error.message}`);
+    }
+    if (productsResponse.error) {
+      console.error("Products error:", productsResponse.error);
+      throw new Error(`Products error: ${productsResponse.error.message}`);
+    }
+    if (suppliersResponse.error) {
+      console.error("Suppliers error:", suppliersResponse.error);
+      throw new Error(`Suppliers error: ${suppliersResponse.error.message}`);
+    }
 
     return NextResponse.json({
       categories: categoriesResponse.data,
-      products: shuffledProducts,
-      suppliers: suppliers,
+      products: productsResponse.data,
+      suppliers: suppliersResponse.data,
     });
   } catch (error) {
     console.error("API error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message || "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
