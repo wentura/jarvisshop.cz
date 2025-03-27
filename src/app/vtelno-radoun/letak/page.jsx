@@ -1,26 +1,19 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CategoryNavigation from "./components/CategoryNavigation";
 import Header from "./components/Header";
 import ProductGrid from "./components/ProductGrid";
+import SupplierNavigation from "./components/SupplierNavigation";
 
 const title = "NAŠE NABÍDKA";
 
-// Fisher-Yates shuffle algorithm
-const shuffleArray = (array) => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[i], shuffled[j]];
-  }
-  return shuffled;
-};
-
 export default function Radoun() {
   const [categories, setCategories] = useState([]);
+  const [suppliers, setSuppliers] = useState([]);
   const [products, setProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [activeSupplier, setActiveSupplier] = useState("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -40,11 +33,13 @@ export default function Radoun() {
 
         const data = await response.json();
 
-        if (!data.categories || !data.products) {
+        if (!data.categories || !data.products || !data.suppliers) {
           throw new Error("Invalid data format returned from API");
         }
 
         const allCategory = { id: "all", name: "VŠE" };
+        const allSupplier = { id: "all", name: "VŠE" };
+
         const processedCategories = [
           allCategory,
           ...data.categories.map((cat) => ({
@@ -53,7 +48,16 @@ export default function Radoun() {
           })),
         ];
 
+        const processedSuppliers = [
+          allSupplier,
+          ...data.suppliers.map((sup) => ({
+            id: sup.id,
+            name: sup.name.toUpperCase(),
+          })),
+        ];
+
         setCategories(processedCategories);
+        setSuppliers(processedSuppliers);
         setProducts(data.products);
       } catch (err) {
         setError(err.message);
@@ -65,11 +69,6 @@ export default function Radoun() {
 
     fetchData();
   }, []);
-
-  // Shuffle products for display
-  const shuffledProducts = useMemo(() => {
-    return shuffleArray(products);
-  }, [products]);
 
   if (loading) {
     return (
@@ -92,13 +91,16 @@ export default function Radoun() {
   return (
     <div className="w-full bg-white min-h-screen font-sans">
       <Header title={title} productsCount={products.length} />
+
       <CategoryNavigation
         categories={categories}
         activeCategory={activeCategory}
       />
-      <ProductGrid products={shuffledProducts} />
-
-      {/* Swiss-style footer with grid lines */}
+      <SupplierNavigation
+        suppliers={suppliers}
+        activeSupplier={activeSupplier}
+      />
+      <ProductGrid products={products} />
     </div>
   );
 }

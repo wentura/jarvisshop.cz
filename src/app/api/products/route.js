@@ -1,4 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 // Initialize Supabase client
@@ -10,65 +11,46 @@ if (!supabaseUrl || !supabaseKey) {
   console.error("Missing Supabase environment variables");
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createRouteHandlerClient({ cookies });
 
-export async function GET(request) {
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[i], shuffled[j]];
+  }
+  return shuffled;
+};
+
+export async function GET() {
   try {
-    const { searchParams } = new URL(request.url);
-    const categoryId = searchParams.get("category");
+    // Fetch suppliers separately to ensure we get all of them
+    const { data: suppliers, error: suppliersError } = await supabase
+      .from("suppliers")
+      .select("id, name")
+      .order("name"); // Optional: order suppliers alphabetically
 
-    // Get all products regardless of category assignment
-    const { data: allProducts, error: productsError } = await supabase.from(
-      "products"
-    ).select(`
-        id, 
-        name, 
-        description, 
-        price, 
-        img_url,
-        id_main_category,
-        categories:id_main_category (
-          id, 
-          name
-        )
-      `);
+    if (suppliersError) throw suppliersError;
 
-    if (productsError) {
-      console.error("Products error:", productsError);
-      throw productsError;
-    }
+    const [categoriesResponse, productsResponse] = await Promise.all([
+      supabase.from("categories").select("id, name"),
+      supabase.from("products").select("*"),
+    ]);
 
-    // Get all categories for the menu
-    const { data: allCategories, error: categoriesError } = await supabase
-      .from("categories")
-      .select("*")
-      .order("name");
+    if (categoriesResponse.error) throw categoriesResponse.error;
+    if (productsResponse.error) throw productsResponse.error;
 
-    if (categoriesError) {
-      console.error("Categories error:", categoriesError);
-      throw categoriesError;
-    }
-
-    // Filter products by category if needed
-    const filteredProducts =
-      categoryId && categoryId !== "all"
-        ? allProducts.filter((product) =>
-            // Handle null id_main_category (uncategorized products)
-            categoryId === "uncategorized"
-              ? !product.id_main_category
-              : product.id_main_category == categoryId
-          )
-        : allProducts;
+    // Shuffle the products
+    const shuffledProducts = shuffleArray(productsResponse.data || []);
 
     return NextResponse.json({
-      categories: allCategories || [],
-      products: filteredProducts || [],
+      categories: categoriesResponse.data,
+      products: shuffledProducts,
+      suppliers: suppliers,
     });
   } catch (error) {
     console.error("API error:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch data: " + error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

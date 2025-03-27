@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import CategoryNavigation from "../../components/CategoryNavigation";
 import Header from "../../components/Header";
 import ProductGrid from "../../components/ProductGrid";
+import SupplierNavigation from "../../components/SupplierNavigation";
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
@@ -15,20 +15,19 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-export default function CategoryPage({ params }) {
-  const categoryId = params.id;
-  const [categories, setCategories] = useState([]);
+export default function SupplierPage({ params }) {
+  const supplierId = params.id;
+  const [suppliers, setSuppliers] = useState([]);
   const [products, setProducts] = useState([]);
-  const [categoryName, setCategoryName] = useState("");
+  const [supplierName, setSupplierName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/products/category/${categoryId}`);
+        const response = await fetch(`/api/products/supplier/${supplierId}`);
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -39,22 +38,22 @@ export default function CategoryPage({ params }) {
 
         const data = await response.json();
 
-        if (!data.categories || !data.products) {
+        if (!data.suppliers || !data.products) {
           throw new Error("Invalid data format returned from API");
         }
 
-        const allCategory = { id: "all", name: "VŠE" };
-        const processedCategories = [
-          allCategory,
-          ...data.categories.map((cat) => ({
-            id: cat.id,
-            name: cat.name.toUpperCase(),
+        const allSupplier = { id: "all", name: "VŠE" };
+        const processedSuppliers = [
+          allSupplier,
+          ...data.suppliers.map((sup) => ({
+            id: sup.id,
+            name: sup.name.toUpperCase(),
           })),
         ];
 
-        setCategories(processedCategories);
+        setSuppliers(processedSuppliers);
         setProducts(data.products);
-        setCategoryName(data.currentCategory?.name?.toUpperCase() || "");
+        setSupplierName(data.currentSupplier?.name?.toUpperCase() || "");
       } catch (err) {
         setError(err.message);
         console.error("Error fetching data:", err);
@@ -64,9 +63,8 @@ export default function CategoryPage({ params }) {
     };
 
     fetchData();
-  }, [categoryId]);
+  }, [supplierId]);
 
-  // Shuffle products for display
   const shuffledProducts = useMemo(() => {
     return shuffleArray(products);
   }, [products]);
@@ -92,14 +90,12 @@ export default function CategoryPage({ params }) {
   return (
     <div className="w-full bg-white min-h-screen font-sans">
       <Header
-        title={categoryName || "KATEGORIE"}
+        title={supplierName || "DODAVATEL"}
         productsCount={products.length}
-        categoryName={categoryName}
+        categoryName={supplierName}
       />
-      <CategoryNavigation categories={categories} activeCategory={categoryId} />
+      <SupplierNavigation suppliers={suppliers} activeSupplier={supplierId} />
       <ProductGrid products={shuffledProducts} />
-
-      {/* Swiss-style footer with grid lines */}
     </div>
   );
 }
