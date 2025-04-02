@@ -12,8 +12,8 @@ export default function LoginPage() {
     e.preventDefault();
 
     if (
-      username === process.env.NEXT_PUBLIC_ADMIN_USERNAME &&
-      password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD
+      username == process.env.NEXT_PUBLIC_ADMIN_USERNAME &&
+      password == process.env.NEXT_PUBLIC_ADMIN_PASSWORD
     ) {
       // Set both localStorage and cookie
       localStorage.setItem("isAdminAuthenticated", "true");
