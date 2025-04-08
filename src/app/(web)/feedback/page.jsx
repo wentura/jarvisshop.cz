@@ -99,7 +99,7 @@ export default function Feedback() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 text-jarvisSecondary uppercase">
-                  Jméno
+                  Jméno - nepovinné
                 </label>
                 <input
                   type="text"
@@ -112,7 +112,7 @@ export default function Feedback() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 text-jarvisSecondary uppercase">
-                  Email
+                  Email - nepovinné
                 </label>
                 <input
                   type="email"
