@@ -80,12 +80,12 @@ export default function AddProductModal({ onClose, onAdd }) {
       <div className="relative top-20 mx-auto p-5 border w-[600px] shadow-lg rounded-md bg-white">
         <div className="mt-3">
           <h3 className="text-lg font-medium text-gray-900 mb-4">
-            Add New Product
+            Přidat nový produkt
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Name
+                jmeno
               </label>
               <input
                 type="text"
@@ -99,7 +99,7 @@ export default function AddProductModal({ onClose, onAdd }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Description
+                popis
               </label>
               <textarea
                 name="description"
@@ -112,7 +112,7 @@ export default function AddProductModal({ onClose, onAdd }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Price
+                cena
               </label>
               <input
                 type="number"
@@ -126,7 +126,7 @@ export default function AddProductModal({ onClose, onAdd }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Image URL
+                URL obrázku
               </label>
               <input
                 type="url"
@@ -139,7 +139,7 @@ export default function AddProductModal({ onClose, onAdd }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Category
+                kategorie
               </label>
               <select
                 name="id_main_category"
@@ -159,7 +159,7 @@ export default function AddProductModal({ onClose, onAdd }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Supplier
+                dodavatel
               </label>
               <select
                 name="id_supplier"
@@ -186,7 +186,7 @@ export default function AddProductModal({ onClose, onAdd }) {
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
               />
               <label className="ml-2 block text-sm text-gray-900">
-                Visible on website
+                Viditelný na webu
               </label>
             </div>
 
@@ -198,14 +198,14 @@ export default function AddProductModal({ onClose, onAdd }) {
                 onClick={onClose}
                 className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md"
               >
-                Cancel
+                Zrušit
               </button>
               <button
                 type="submit"
                 disabled={loading}
                 className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md disabled:opacity-50"
               >
-                {loading ? "Creating..." : "Create Product"}
+                {loading ? "Vytvářím..." : "Vytvořit produkt"}
               </button>
             </div>
           </form>

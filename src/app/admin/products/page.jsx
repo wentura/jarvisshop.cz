@@ -64,12 +64,12 @@ export default function Products() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Products</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Produkty</h1>
         <button
           onClick={() => setIsAddModalOpen(true)}
           className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
         >
-          Add Product
+          Přidat produkt
         </button>
       </div>
 
@@ -80,20 +80,23 @@ export default function Products() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 ID
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
+              <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                &nbsp;
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Price
+                jmeno
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Category
+                cena
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Supplier
+                kategorie
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                dodavatel
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Actions
+                akce
               </th>
             </tr>
           </thead>
@@ -102,6 +105,13 @@ export default function Products() {
               <tr key={product.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {product.id}
+                </td>
+                <td className="py-2 whitespace-nowrap text-sm text-gray-900 flex justify-center items-center w-16">
+                  <img
+                    src={product.img_url}
+                    alt={product.name}
+                    className="w-auto h-12"
+                  />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {product.name}
@@ -122,9 +132,9 @@ export default function Products() {
                   >
                     Edit
                   </button>
-                  <button className="text-red-600 hover:text-red-900">
+                  {/* <button className="text-red-600 hover:text-red-900">
                     Delete
-                  </button>
+                  </button> */}
                 </td>
               </tr>
             ))}

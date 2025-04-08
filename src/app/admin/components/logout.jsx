@@ -29,7 +29,7 @@ export default function Logout() {
         className="flex items-center px-4 py-2 text-gray-600 hover:bg-indigo-50 rounded-lg transition-colors"
       >
         <span className="mr-3">🚪</span>
-        Logout
+        Odhlásit se
       </button>
     </div>
   );

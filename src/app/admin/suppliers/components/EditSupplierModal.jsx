@@ -52,19 +52,19 @@ export default function EditSupplierModal({ supplier, onClose, onUpdate }) {
       <div className="relative top-20 mx-auto p-5 border w-[600px] shadow-lg rounded-md bg-white">
         <div className="mt-3">
           <h3 className="text-lg font-medium text-gray-900 mb-4">
-            Edit Supplier
+            Upravit dodavatele
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Name
+                jmeno
               </label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4 border-2"
                 required
               />
             </div>
@@ -78,22 +78,22 @@ export default function EditSupplierModal({ supplier, onClose, onUpdate }) {
                 name="url"
                 value={formData.url}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4 border-2"
                 placeholder="https://example.com"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Description
+                popis
               </label>
               <textarea
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
                 rows={4}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                placeholder="Enter supplier description"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4 border-2"
+                placeholder="Zadejte popis dodavatele"
               />
             </div>
 
@@ -105,14 +105,14 @@ export default function EditSupplierModal({ supplier, onClose, onUpdate }) {
                 onClick={onClose}
                 className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md"
               >
-                Cancel
+                Zrušit
               </button>
               <button
                 type="submit"
                 disabled={loading}
                 className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md disabled:opacity-50"
               >
-                {loading ? "Saving..." : "Save Changes"}
+                {loading ? "Ukládám..." : "Uložit změny"}
               </button>
             </div>
           </form>

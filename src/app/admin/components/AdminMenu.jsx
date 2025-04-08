@@ -8,15 +8,15 @@ export default function AdminMenu() {
 
   const menuItems = [
     { href: "/admin", label: "Dashboard", icon: "📊" },
-    { href: "/admin/products", label: "Products", icon: "📦" },
-    { href: "/admin/categories", label: "Categories", icon: "🏷️" },
-    { href: "/admin/suppliers", label: "Suppliers", icon: "🏢" },
+    { href: "/admin/products", label: "Produkty", icon: "📦" },
+    { href: "/admin/categories", label: "Kategorie", icon: "🏷️" },
+    { href: "/admin/suppliers", label: "Dodavatelé", icon: "🏢" },
   ];
 
   return (
     <nav className="bg-white shadow-lg h-full p-4">
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-800">Admin Panel</h2>
+        <h2 className="text-xl font-bold text-gray-800">Administrace</h2>
       </div>
       <ul className="space-y-2">
         {menuItems.map((item) => (
