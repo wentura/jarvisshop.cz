@@ -8,7 +8,7 @@ export default function Feedback() {
         {" "}
         {/* Increased max-width for longer form */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 text-jarvisPrimary">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 text-jarvisSecondary nadpisText-800 uppercase tracking-tight">
             Dotazník spokojenosti
           </h1>
           <p className="text-gray-600 mx-auto max-w-2xl text-left">
