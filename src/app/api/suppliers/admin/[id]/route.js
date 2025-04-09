@@ -9,14 +9,19 @@ const supabase = createClient(
 export async function PUT(request, { params }) {
   try {
     const { id } = params;
-    const updateData = await request.json();
+    const { name, url, description, logo_url } = await request.json();
+
+    if (!name) {
+      return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    }
 
     const { data, error } = await supabase
       .from("suppliers")
       .update({
-        name: updateData.name,
-        url: updateData.url,
-        description: updateData.description,
+        name,
+        url,
+        description,
+        logo_url,
       })
       .eq("id", id)
       .select()

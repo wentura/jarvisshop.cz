@@ -67,6 +67,7 @@ export default function Radoun() {
           ...data.suppliers.map((sup) => ({
             id: sup.id,
             name: sup.name.toUpperCase(),
+            logo_url: sup.logo_url,
           })),
         ];
 

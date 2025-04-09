@@ -36,7 +36,7 @@ export async function GET() {
       await Promise.all([
         supabase.from("categories").select("id, name").order("name"),
         supabase.from("products").select("*"),
-        supabase.from("suppliers").select("id, name").order("name"),
+        supabase.from("suppliers").select("*").order("name"),
       ]);
 
     // Log responses for debugging

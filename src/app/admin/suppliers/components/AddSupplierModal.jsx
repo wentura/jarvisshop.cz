@@ -6,6 +6,7 @@ export default function AddSupplierModal({ onClose, onAdd }) {
     name: "",
     url: "",
     description: "",
+    logo_url: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -95,6 +96,20 @@ export default function AddSupplierModal({ onClose, onAdd }) {
                 rows={4}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4 border-2"
                 placeholder="Zadejte popis dodavatele"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Logo URL
+              </label>
+              <input
+                type="url"
+                name="logo_url"
+                value={formData.logo_url}
+                onChange={handleChange}
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4 border-2"
+                placeholder="https://example.com/logo.png"
               />
             </div>
 

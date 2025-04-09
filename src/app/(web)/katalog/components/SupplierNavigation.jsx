@@ -10,9 +10,9 @@ export default function SupplierNavigation({ suppliers, activeSupplier }) {
 
   const handleSupplierChange = (supplierId) => {
     if (supplierId === "all") {
-      router.push("/vtelno-radoun/letak");
+      router.push("/katalog");
     } else {
-      router.push(`/vtelno-radoun/letak/dodavatel/${supplierId}`);
+      router.push(`/katalog/dodavatel/${supplierId}`);
     }
   };
 
@@ -26,7 +26,7 @@ export default function SupplierNavigation({ suppliers, activeSupplier }) {
       </button>
       {activeSupplier !== "all" && (
         <Link
-          href="/vtelno-radoun/letak"
+          href="/katalog"
           className="text-xs sm:text-sm underline underline-offset-4 pb-4 ml-4"
         >
           VŠE
@@ -39,12 +39,19 @@ export default function SupplierNavigation({ suppliers, activeSupplier }) {
               <button
                 key={supplier.id}
                 onClick={() => handleSupplierChange(supplier.id)}
-                className={`px-4 py-2 transition-all duration-300 text-xs sm:text-sm tracking-wider font-medium ${
+                className={`px-4 py-2 transition-all duration-300 text-xs sm:text-sm tracking-wider font-medium flex items-center ${
                   activeSupplier === supplier.id
                     ? "bg-black text-white"
                     : "bg-white text-black border border-black hover:bg-gray-100"
                 }`}
               >
+                {supplier.logo_url && (
+                  <img
+                    src={supplier.logo_url}
+                    alt={supplier.name}
+                    className="w-8 h-auto max-w-8 max-h-8 mr-2"
+                  />
+                )}
                 {supplier.name}
               </button>
             ))

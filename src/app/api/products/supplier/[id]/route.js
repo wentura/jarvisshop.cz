@@ -22,7 +22,7 @@ export async function GET(request, { params }) {
       await Promise.all([
         supabase.from("suppliers").select("id, name").order("name"),
         supabase.from("products").select("*").eq("id_supplier", supplierId),
-        supabase.from("suppliers").select("name").eq("id", supplierId).single(),
+        supabase.from("suppliers").select("*").eq("id", supplierId).single(),
       ]);
 
     // Check for errors

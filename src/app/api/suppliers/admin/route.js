@@ -27,7 +27,7 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const { name, url, description } = await request.json();
+    const { name, url, description, logo_url } = await request.json();
 
     if (!name) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
@@ -35,7 +35,7 @@ export async function POST(request) {
 
     const { data, error } = await supabase
       .from("suppliers")
-      .insert([{ name, url, description }])
+      .insert([{ name, url, description, logo_url }])
       .select()
       .single();
 
