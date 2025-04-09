@@ -126,6 +126,16 @@ export default function Products() {
                   {product.suppliers?.name || "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  {product.is_visible ? (
+                    <span className="bg-green-200 p-1 mr-4 rounded-full">
+                      &nbsp;
+                    </span>
+                  ) : (
+                    <span className="bg-red-200 p-1 mr-4 rounded-full">
+                      &nbsp;
+                    </span>
+                  )}
+
                   <button
                     onClick={() => handleEdit(product)}
                     className="text-indigo-600 hover:text-indigo-900 mr-4"

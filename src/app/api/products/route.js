@@ -35,7 +35,7 @@ export async function GET() {
     const [categoriesResponse, productsResponse, suppliersResponse] =
       await Promise.all([
         supabase.from("categories").select("id, name").order("name"),
-        supabase.from("products").select("*"),
+        supabase.from("products").select("*").eq("is_visible", true),
         supabase.from("suppliers").select("*").order("name"),
       ]);
 
