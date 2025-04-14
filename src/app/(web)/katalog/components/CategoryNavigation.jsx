@@ -16,7 +16,7 @@ export default function CategoryNavigation({ categories, activeCategory }) {
   };
 
   return (
-    <div className="container mx-auto px-6 py-8  hidden md:block">
+    <div className="container mx-auto px-4 py-4  hidden md:block">
       <button
         onClick={() => setShowCategories(!showCategories)}
         className="text-xs sm:text-sm underline underline-offset-4 pb-4"

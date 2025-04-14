@@ -17,7 +17,7 @@ export default function SupplierNavigation({ suppliers, activeSupplier }) {
   };
 
   return (
-    <div className="container mx-auto px-6 py-8 border-b-2 border-black hidden md:block">
+    <div className="container mx-auto px-4 py-2 border-b-2 border-black hidden md:block">
       <button
         onClick={() => setShowSuppliers(!showSuppliers)}
         className=" text-xs sm:text-sm underline underline-offset-4 pb-4"
