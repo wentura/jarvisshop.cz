@@ -9,9 +9,9 @@ export default function CategoryNavigation({ categories, activeCategory }) {
 
   const handleCategoryChange = (categoryId) => {
     if (categoryId === "all") {
-      router.push("/vtelno-radoun/letak");
+      router.push("/katalog");
     } else {
-      router.push(`/vtelno-radoun/letak/category/${categoryId}`);
+      router.push(`/katalog/category/${categoryId}`);
     }
   };
 
@@ -25,7 +25,7 @@ export default function CategoryNavigation({ categories, activeCategory }) {
       </button>
       {activeCategory !== "all" && (
         <Link
-          href="/vtelno-radoun/letak"
+          href="/katalog"
           className="text-xs sm:text-sm underline underline-offset-4 pb-4 ml-4"
         >
           VŠE
