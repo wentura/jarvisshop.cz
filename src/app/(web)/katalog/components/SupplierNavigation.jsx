@@ -45,13 +45,13 @@ export default function SupplierNavigation({ suppliers, activeSupplier }) {
                     : "bg-white text-black border border-black hover:bg-gray-100"
                 }`}
               >
-                {supplier.logo_url && (
+                {/* {supplier.logo_url && (
                   <img
                     src={supplier.logo_url}
                     alt={supplier.name}
                     className="w-8 h-auto max-w-8 max-h-8 mr-2"
                   />
-                )}
+                )} */}
                 {supplier.name}
               </button>
             ))
