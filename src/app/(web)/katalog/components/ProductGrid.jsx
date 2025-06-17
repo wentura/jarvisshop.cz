@@ -20,7 +20,19 @@ export default function ProductGrid({ products }) {
 
                 {/* Swiss-style price tag - smaller for compact layout */}
                 <div className="absolute bottom-0 right-0 bg-red-600 text-white font-bold px-3 py-1 text-sm">
-                  {product.price} Kč
+                  {Number(product.price)
+                    .toFixed(2)
+                    .split(".")
+                    .map((part, index) => (
+                      <span
+                        key={index}
+                        className={index === 1 ? "text-[0.8em]" : ""}
+                      >
+                        {part}
+                        {index === 0 ? "." : ""}
+                      </span>
+                    ))}{" "}
+                  Kč
                 </div>
               </div>
 
