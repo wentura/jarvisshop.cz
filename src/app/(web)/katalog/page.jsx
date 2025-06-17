@@ -25,6 +25,9 @@ export default function Radoun() {
           method: "GET",
           headers: {
             Accept: "application/json",
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache",
+            Expires: "0",
           },
         });
 
@@ -113,7 +116,7 @@ export default function Radoun() {
       <Header title={title} productsCount={products.length} />
       <CategoryNavigation
         categories={categories}
-        activeCategory={activeCategory}
+        activeCatewgory={activeCategory}
       />
       <SupplierNavigation
         suppliers={suppliers}
