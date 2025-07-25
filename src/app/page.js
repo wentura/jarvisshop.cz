@@ -35,20 +35,21 @@ export default function Home() {
       >
         <Spolupracujeme />
       </div>
-      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
+      {/* <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
         <Recenze />
+      </div> */}
+
+      <div
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32"
+        id="kontakt"
+      >
+        <Contact />
       </div>
       <div
         className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32 bg-jarvisBg "
         id="kdo"
       >
         <Tym />
-      </div>
-      <div
-        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32"
-        id="kontakt"
-      >
-        <Contact />
       </div>
     </main>
   );
