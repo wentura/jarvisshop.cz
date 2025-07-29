@@ -7,8 +7,8 @@ import Navigation from "@/components/navigation";
 import PilotniProdejna from "@/components/pilotniProdejna";
 import Recenze from "@/components/recenze";
 import Spolupracujeme from "@/components/spolupracujeme";
+import Timeline from "@/components/timeline";
 import Tym from "@/components/tym";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -35,21 +35,22 @@ export default function Home() {
       >
         <Spolupracujeme />
       </div>
-      {/* <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
-        <Recenze />
-      </div> */}
-
-      <div
-        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32"
-        id="kontakt"
-      >
-        <Contact />
+      <div className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32">
+        {/* <Recenze /> */}
+        <Timeline />
       </div>
+
       <div
         className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32 bg-jarvisBg "
         id="kdo"
       >
         <Tym />
+      </div>
+      <div
+        className="pt-12 pb-12 md:pt-20 md:pb-20 lg:pt-32 lg:pb-32"
+        id="kontakt"
+      >
+        <Contact />
       </div>
     </main>
   );
