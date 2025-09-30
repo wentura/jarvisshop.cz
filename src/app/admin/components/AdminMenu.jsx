@@ -11,6 +11,7 @@ export default function AdminMenu() {
     { href: "/admin/products", label: "Produkty", icon: "📦" },
     { href: "/admin/categories", label: "Kategorie", icon: "🏷️" },
     { href: "/admin/suppliers", label: "Dodavatelé", icon: "🏢" },
+    { href: "/admin/shops", label: "Obchody", icon: "🏪" },
   ];
 
   return (

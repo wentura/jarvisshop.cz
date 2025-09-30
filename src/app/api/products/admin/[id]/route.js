@@ -21,6 +21,9 @@ export async function PUT(request, { params }) {
         id_main_category: updateData.id_main_category,
         id_supplier: updateData.id_supplier,
         is_visible: updateData.is_visible,
+        is_in_shop_inter_id: updateData.is_in_shop_inter_id || [],
+        is_on_landing_page: updateData.is_on_landing_page || false,
+        is_on_shop_landing_page: updateData.is_on_shop_landing_page || false,
       })
       .eq("id", id)
       .select(

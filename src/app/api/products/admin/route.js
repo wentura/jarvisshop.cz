@@ -59,6 +59,9 @@ export async function POST(request) {
           id_main_category: productData.id_main_category,
           id_supplier: productData.id_supplier,
           is_visible: productData.is_visible,
+          is_in_shop_inter_id: productData.is_in_shop_inter_id || [],
+          is_on_landing_page: productData.is_on_landing_page || false,
+          is_on_shop_landing_page: productData.is_on_shop_landing_page || false,
         },
       ])
       .select(

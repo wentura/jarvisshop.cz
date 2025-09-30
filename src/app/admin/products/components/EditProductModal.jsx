@@ -10,26 +10,33 @@ export default function EditProductModal({ product, onClose, onUpdate }) {
     id_main_category: product.id_main_category || "",
     id_supplier: product.id_supplier || "",
     is_visible: product.is_visible || false,
+    is_in_shop_inter_id: product.is_in_shop_inter_id || [],
+    is_on_landing_page: product.is_on_landing_page || false,
+    is_on_shop_landing_page: product.is_on_shop_landing_page || false,
   });
   const [categories, setCategories] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
+  const [shops, setShops] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch categories and suppliers
+  // Fetch categories, suppliers, and shops
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [categoriesRes, suppliersRes] = await Promise.all([
+        const [categoriesRes, suppliersRes, shopsRes] = await Promise.all([
           fetch("/api/categories"),
           fetch("/api/suppliers"),
+          fetch("/api/shops/admin"),
         ]);
 
         const categoriesData = await categoriesRes.json();
         const suppliersData = await suppliersRes.json();
+        const shopsData = await shopsRes.json();
 
         setCategories(categoriesData.categories);
         setSuppliers(suppliersData.suppliers);
+        setShops(shopsData.shops);
       } catch (err) {
         setError("Failed to load form data");
       }
@@ -43,6 +50,15 @@ export default function EditProductModal({ product, onClose, onUpdate }) {
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleShopChange = (shopId) => {
+    setFormData((prev) => ({
+      ...prev,
+      is_in_shop_inter_id: prev.is_in_shop_inter_id.includes(shopId)
+        ? prev.is_in_shop_inter_id.filter((id) => id !== shopId)
+        : [...prev.is_in_shop_inter_id, shopId],
     }));
   };
 
@@ -188,6 +204,65 @@ export default function EditProductModal({ product, onClose, onUpdate }) {
               <label className="ml-2 block text-sm text-gray-900">
                 Viditelný na webu
               </label>
+            </div>
+
+            {/* Landing Page Visibility */}
+            <div className="border-t pt-4">
+              <h4 className="text-sm font-medium text-gray-900 mb-3">
+                Zobrazení na landing stránkách
+              </h4>
+
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="is_on_landing_page"
+                    checked={formData.is_on_landing_page}
+                    onChange={handleChange}
+                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  />
+                  <label className="ml-2 block text-sm text-gray-900">
+                    Zobrazit na hlavní landing stránce
+                  </label>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="is_on_shop_landing_page"
+                    checked={formData.is_on_shop_landing_page}
+                    onChange={handleChange}
+                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  />
+                  <label className="ml-2 block text-sm text-gray-900">
+                    Zobrazit na landing stránkách obchodů
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* Shop Selection */}
+            <div className="border-t pt-4">
+              <h4 className="text-sm font-medium text-gray-900 mb-3">
+                Dostupnost v obchodech
+              </h4>
+              <div className="space-y-2 max-h-40 overflow-y-auto">
+                {shops.map((shop) => (
+                  <div key={shop.id} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={formData.is_in_shop_inter_id.includes(
+                        shop.id_inter
+                      )}
+                      onChange={() => handleShopChange(shop.id_inter)}
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    />
+                    <label className="ml-2 block text-sm text-gray-900">
+                      {shop.name} {shop.id_inter && `(${shop.id_inter})`}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {error && <div className="text-sm text-red-600">{error}</div>}
